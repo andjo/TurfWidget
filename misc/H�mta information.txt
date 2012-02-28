@@ -1,0 +1,14 @@
+http://www.turfwars.se/widget.php?email=andreas.pantesjo@googlemail.com
+
+email hämtar du från mitt aktiva googlekonto i mobilen
+
+
+<widget><stats points="7684" zones="5" hour="17"/></widget> 
+
+
+andreas.pantesjo@googlemail.com
+
+
+se.turfwars.android
+
+elinkarolina@gmail.com
