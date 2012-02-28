@@ -4,14 +4,14 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import android.util.Log;
+//import android.util.Log;
 
 import com.turf.widget.turf.CharStats;
 
 
 public class ParseHandler extends DefaultHandler{
 
-	private boolean widget_tag = false;
+//	private boolean widget_tag = false;
 	private CharStats charStats = new CharStats();
 	
 
@@ -37,7 +37,7 @@ public class ParseHandler extends DefaultHandler{
 		{
 			if(localName.equals("widget"))
 			{
-				widget_tag = true;
+				//widget_tag = true;
 			}
 			else if (localName.equals("stats"))
 			{
@@ -68,7 +68,7 @@ public class ParseHandler extends DefaultHandler{
 	throws SAXException {
 		if(localName.equals("widget"))
 		{
-			widget_tag = true;
+			//widget_tag = true;
 		}
 		else if (localName.equals("stats"))
 		{
