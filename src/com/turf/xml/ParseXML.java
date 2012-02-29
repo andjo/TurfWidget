@@ -19,7 +19,7 @@ import android.util.Log;
 
 public class ParseXML
 {
-	private static final String URL_ADRESS = "http://81.91.1.137/mobile/widget.php?email=";
+	private static final String URL_ADRESS = "http://www.turfa.se/thirdparty/user.php/";
 	private static final String DEBUG_TAG = "ParseXML";
 	
 	public static CharStats parseXML(String email, Context context)
