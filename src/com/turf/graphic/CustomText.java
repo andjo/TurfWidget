@@ -13,8 +13,8 @@ import android.graphics.Paint;
 public class CustomText 
 {
 	private Context mContext;
-	private int standardHeightS = 20;
-	private int standardHeightB = 24;
+	private int standardHeightS = 26;
+	private int standardHeightB = 30;
 	private ArrayList<Bitmap> ImageUsed;
 
 	private int IntArrayB[] = {
