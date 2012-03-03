@@ -7,7 +7,11 @@
   <uses-permission android:name="android.permission.GET_ACCOUNTS" />
   <uses-permission android:name="android.permission.INTERNET" />
   <uses-permission android:name="android.permission.VIBRATE" />
-  <uses-sdk android:minSdkVersion="7"/>
+
+  <uses-sdk
+      android:minSdkVersion="7"
+      android:targetSdkVersion="8" />
+
   	<application
 		android:icon="@drawable/app_icon"
 		android:label="@string/widget_name">
