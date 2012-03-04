@@ -1,181 +1,82 @@
 package com.turf.graphic;
 
-import java.util.ArrayList;
-
-import com.turf.widget.turf.R;
-
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Paint.Align;
+import android.graphics.Rect;
+import android.graphics.Typeface;
+//import android.util.Log;
 
 public class CustomText 
 {
 	private Context mContext;
-	private int standardHeightS = 26;
-	private int standardHeightB = 30;
-	private ArrayList<Bitmap> ImageUsed;
-
-	private int IntArrayB[] = {
-			R.drawable.b_0,
-			R.drawable.b_1,
-			R.drawable.b_2,
-			R.drawable.b_3,
-			R.drawable.b_4,
-			R.drawable.b_5,
-			R.drawable.b_6,
-			R.drawable.b_7,
-			R.drawable.b_8,
-			R.drawable.b_9};
+	private float scale;
+	private int fontSizeSmall = 10;
+	private int fontSizeBig = 13;
 	
-	private int IntArrayS[] = {
-			R.drawable.s_0,
-			R.drawable.s_1,
-			R.drawable.s_2,
-			R.drawable.s_3,
-			R.drawable.s_4,
-			R.drawable.s_5,
-			R.drawable.s_6,
-			R.drawable.s_7,
-			R.drawable.s_8,
-			R.drawable.s_9};	
-
-	
-
 	public CustomText(Context context)
 	{
 		mContext = context;
+		scale = mContext.getResources().getDisplayMetrics().density;
+	}
+	
+	private Bitmap createCustomText(String text, int fontSize) {   
+		Typeface tf = Typeface.createFromAsset(mContext.getAssets(),"fonts/Insanehours.ttf");
+	    Paint paint = new Paint();
+	    paint.setAntiAlias(true);
+	    paint.setSubpixelText(true);
+	    paint.setTypeface(tf);
+//	    paint.setStyle(Paint.Style.FILL);
+	    paint.setColor(Color.argb(255, 255, 222, 0));
+	    paint.setTextSize(fontSize * scale);
+	    paint.setTextAlign(Align.LEFT);
+
+	    Paint.FontMetricsInt metrics = paint.getFontMetricsInt();
+	    int height = metrics.bottom - metrics.top;
+
+	    Rect bounds = new Rect();
+	    paint.getTextBounds(text, 0, text.length(), bounds);
+	    int width = bounds.right-bounds.left;
+
+//	    Log.d("tag", "height:"+height);
+//	    Log.d("tag", "width:"+width);
+//	    Log.d("tag", "top:"+metrics.top);
+//	    Log.d("tag", "bottom:"+metrics.bottom);
+//	    Log.d("tag", "leading:"+metrics.leading);
+//	    Log.d("tag", "left:"+bounds.left);
+
+	    Bitmap myBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+//	    myBitmap.eraseColor(Color.WHITE);  // Debug
+	    Canvas myCanvas = new Canvas(myBitmap);
+	    myCanvas.drawText(text, -bounds.left, height - metrics.bottom, paint);
+	    return myBitmap;
 	}
 
 	public Bitmap createCustomPoints(int value)
 	{
-		ImageUsed = new ArrayList<Bitmap>();			
-		int width, height, floatLeft;
-		String intString = Integer.toString(value);
-		width = 0;
-		for(int i = 0; i < intString.length(); i++)
-		{	
-			String tempChar = Character.toString(intString.charAt(i));
-			int tempInt = Integer.valueOf(tempChar);
-			Bitmap drawBit = BitmapFactory.decodeResource(mContext.getResources(), IntArrayB[tempInt]);
-			width += drawBit.getWidth();
-			ImageUsed.add(drawBit);
-		}
-
-		height = standardHeightB;   
-
-		Bitmap bmp = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_4444);
-		Canvas c = new Canvas(bmp);
-		Paint paint = new Paint();
-
-		floatLeft = 0;
-		for(int i = 0; i < ImageUsed.size(); i++)
-		{				    	
-			c.drawBitmap(ImageUsed.get(i), floatLeft, 0, paint);
-			floatLeft += ImageUsed.get(i).getWidth();
-		}
-
-		return bmp;
+		String text = Integer.toString(value);
+		return createCustomText(text, fontSizeBig);
 	}
+
 	
 	public Bitmap createCustomHours(int value)
 	{
-		ImageUsed = new ArrayList<Bitmap>();
-		Bitmap plus = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.s_plus);
-		int width, height, floatLeft;
-		String intString = Integer.toString(value);
-		width = 0;
-		for(int i = 0; i < intString.length(); i++)
-		{	
-			String tempChar = Character.toString(intString.charAt(i));
-			int tempInt = Integer.valueOf(tempChar);
-			Bitmap drawBit = BitmapFactory.decodeResource(mContext.getResources(), IntArrayS[tempInt]);
-			width += drawBit.getWidth();
-			ImageUsed.add(drawBit);
-		}
-		width += plus.getWidth();
-		height = standardHeightS;   
-
-		Bitmap bmp = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_4444);
-		Canvas c = new Canvas(bmp);
-		Paint paint = new Paint();
-
-		floatLeft = 0;
-		c.drawBitmap(plus, floatLeft, 0, paint);
-		floatLeft = plus.getWidth();
-		for(int i = 0; i < ImageUsed.size(); i++)
-		{				    	
-			c.drawBitmap(ImageUsed.get(i), floatLeft, 0, paint);
-			floatLeft += ImageUsed.get(i).getWidth();
-		}
-		
-		return bmp;
+		String text = "+" + Integer.toString(value);
+		return createCustomText(text, fontSizeSmall);
 	}
 	
 	public Bitmap createCustomZones(int value)
 	{
-		ImageUsed = new ArrayList<Bitmap>();
-		Bitmap zone = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.s_z);
-		
-		int width, height, floatLeft;
-		String intString = Integer.toString(value);
-		width = 0;
-		for(int i = 0; i < intString.length(); i++)
-		{	
-			String tempChar = Character.toString(intString.charAt(i));
-			int tempInt = Integer.valueOf(tempChar);
-			Bitmap drawBit = BitmapFactory.decodeResource(mContext.getResources(), IntArrayS[tempInt]);
-			width += drawBit.getWidth();
-			ImageUsed.add(drawBit);
-		}
-		width += zone.getWidth();
-		
-		
-		height = standardHeightS;   
-
-		Bitmap bmp = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_4444);
-		Canvas c = new Canvas(bmp);
-		Paint paint = new Paint();
-
-		floatLeft = 0;
-		for(int i = 0; i < ImageUsed.size(); i++)
-		{				    	
-			c.drawBitmap(ImageUsed.get(i), floatLeft, 0, paint);
-			floatLeft += ImageUsed.get(i).getWidth();
-		}
-		c.drawBitmap(zone, floatLeft, 0, paint);
-		return bmp;
+		String text = Integer.toString(value) + "Z";
+		return createCustomText(text, fontSizeSmall);
 	}
 
 	public Bitmap createCustomPlace(int value)
 	{
-		ImageUsed = new ArrayList<Bitmap>();			
-		int width, height, floatLeft;
-		String intString = Integer.toString(value);
-		width = 0;
-		for(int i = 0; i < intString.length(); i++)
-		{	
-			String tempChar = Character.toString(intString.charAt(i));
-			int tempInt = Integer.valueOf(tempChar);
-			Bitmap drawBit = BitmapFactory.decodeResource(mContext.getResources(), IntArrayS[tempInt]);
-			width += drawBit.getWidth();
-			ImageUsed.add(drawBit);
-		}
-
-		height = standardHeightS;   
-
-		Bitmap bmp = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_4444);
-		Canvas c = new Canvas(bmp);
-		Paint paint = new Paint();
-
-		floatLeft = 0;
-		for(int i = 0; i < ImageUsed.size(); i++)
-		{				    	
-			c.drawBitmap(ImageUsed.get(i), floatLeft, 0, paint);
-			floatLeft += ImageUsed.get(i).getWidth();
-		}
-
-		return bmp;
+		String text = Integer.toString(value);
+		return createCustomText(text, fontSizeSmall);
 	}
 }
