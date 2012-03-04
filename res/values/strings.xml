@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello Widget</string>
     <string name="widget_name">Turf Widget</string>
     <string name="prefs_name">Turf Widget Settings</string>
     
@@ -11,7 +10,6 @@
     
     
     <string name="update_freq_title">Update Frequency</string>
-    <string name="update_freq_summary">Choose how often the widget should get your Turf status</string>
     <string name="update_freq_dialog">Choose how often to update:</string>
     
     <string name="vibrate_title">Vibrate</string>
