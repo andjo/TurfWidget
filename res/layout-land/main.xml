@@ -87,9 +87,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_marginRight="30dip"
-        android:layout_marginTop="13dip"
         android:orientation="vertical"
+        android:paddingRight="30dip"
+        android:paddingTop="15dip"
         android:src="@drawable/alert0" >
     </ImageView>
 
@@ -97,12 +97,14 @@
         android:id="@+id/option"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginRight="30dip"
-        android:layout_marginTop="37dip"
         android:background="@null"
         android:orientation="vertical"
+        android:paddingBottom="13dip"
+        android:paddingLeft="5dip"
+        android:paddingRight="30dip"
+        android:paddingTop="5dip"
         android:src="@drawable/button_option" >
     </ImageButton>
 
@@ -110,10 +112,14 @@
         android:id="@+id/refresh"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="32dip"
-        android:layout_marginTop="37dip"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
         android:background="@null"
         android:orientation="vertical"
+        android:paddingBottom="20dip"
+        android:paddingLeft="32dip"
+        android:paddingRight="10dip"
+        android:paddingTop="10dip"
         android:src="@drawable/button_refresh" >
     </ImageButton>
 
