@@ -9,10 +9,9 @@
         android:id="@+id/error"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="20dip"
+        android:layout_marginLeft="22dip"
         android:text=""
-        android:textSize="13sp" >
+        android:textSize="13sp" android:layout_alignParentTop="true" android:layout_marginTop="22dip">
     </TextView>
 
     <LinearLayout
@@ -20,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_marginRight="46dip"
+        android:layout_marginRight="54dip"
         android:layout_marginTop="25dip" >
 
         <ImageView
@@ -43,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_marginRight="46dip"
+        android:layout_marginRight="54dip"
         android:layout_marginTop="47dip" >
 
         <ImageView
@@ -65,7 +64,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_marginRight="46dip"
+        android:layout_marginRight="54dip"
         android:layout_marginTop="63dip" >
 
         <ImageView
