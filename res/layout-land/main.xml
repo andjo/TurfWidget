@@ -18,30 +18,32 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="60dip"
-        android:layout_marginTop="10dip" >
+        android:layout_marginRight="70dip"
+        android:layout_marginTop="15dip" >
 
         <ImageView
             android:id="@+id/power"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dip" >
+            android:layout_marginTop="1dip" >
         </ImageView>
 
         <ImageView
             android:id="@+id/points"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dip" >
+            android:layout_marginTop="1dip" >
         </ImageView>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="83dip"
+        android:layout_marginRight="70dip"
         android:layout_marginTop="32dip" >
 
         <ImageView
@@ -61,8 +63,9 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="95dip"
+        android:layout_marginRight="70dip"
         android:layout_marginTop="46dip" >
 
         <ImageView
