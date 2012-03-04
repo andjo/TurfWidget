@@ -8,7 +8,6 @@ import android.graphics.Paint;
 import android.graphics.Paint.Align;
 import android.graphics.Rect;
 import android.graphics.Typeface;
-//import android.util.Log;
 
 public class CustomText 
 {
@@ -40,13 +39,6 @@ public class CustomText
 	    Rect bounds = new Rect();
 	    paint.getTextBounds(text, 0, text.length(), bounds);
 	    int width = bounds.right-bounds.left;
-
-//	    Log.d("tag", "height:"+height);
-//	    Log.d("tag", "width:"+width);
-//	    Log.d("tag", "top:"+metrics.top);
-//	    Log.d("tag", "bottom:"+metrics.bottom);
-//	    Log.d("tag", "leading:"+metrics.leading);
-//	    Log.d("tag", "left:"+bounds.left);
 
 	    Bitmap myBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
 //	    myBitmap.eraseColor(Color.WHITE);  // Debug
