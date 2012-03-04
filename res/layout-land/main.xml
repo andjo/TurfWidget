@@ -1,105 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:id="@+id/widget"
-	android:layout_width="fill_parent"
-	android:layout_height="fill_parent"
-	android:background="@drawable/widgetbg">
-	<TextView
-		android:id="@+id/error"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_centerVertical="true"
-		android:layout_marginLeft="20dip"
-		android:textSize="13sp"
-		android:text="">
-	</TextView>
-	<LinearLayout
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_marginTop="10dip"
-		android:layout_marginLeft="60dip"
-		android:layout_alignParentTop="true" >
-		<ImageView
-			android:id="@+id/power"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_marginTop="4dip">
-		</ImageView>
-		<ImageView
-			android:id="@+id/points"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_marginTop="5dip">
-		</ImageView>
-	</LinearLayout>
-	<LinearLayout
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_marginTop="32dip"
-		android:layout_marginLeft="83dip"
-		android:layout_alignParentTop="true">
-		<ImageView
-			android:id="@+id/hour"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_marginRight="10dip">
-		</ImageView>
-		<ImageView
-			android:id="@+id/zones"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content">
-		</ImageView>
-	</LinearLayout>
-	<LinearLayout
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_marginTop="46dip"
-		android:layout_marginLeft="95dip"
-		android:layout_alignParentTop="true">
-		<ImageView
-			android:id="@+id/placestar"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content">
-		</ImageView>
-		<ImageView
-			android:id="@+id/place"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content">
-		</ImageView>
-	</LinearLayout>
-	<ImageView
-		android:id="@+id/alert"
-		android:src="@drawable/alert0"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_marginTop="13dip"
-		android:layout_marginRight="30dip"
-		android:orientation="vertical"
-		android:layout_alignParentTop="true"
-		android:layout_alignParentRight="true">
-	</ImageView>
-	<ImageButton
-		android:id="@+id/option"
-		android:src="@drawable/button_option"
-		android:background="@null"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_marginTop="37dip"
-		android:layout_marginRight="30dip"
-		android:orientation="vertical"
-		android:layout_alignParentTop="true"
-		android:layout_alignParentRight="true">
-	</ImageButton>
-	<ImageButton
-		android:id="@+id/refresh"
-		android:src="@drawable/button_refresh"
-		android:background="@null"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_marginTop="37dip"
-		android:layout_marginLeft="32dip"
-		android:orientation="vertical"
-		>
-	</ImageButton>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/widgetbg" >
+
+    <TextView
+        android:id="@+id/error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="20dip"
+        android:text=""
+        android:textSize="13sp" >
+    </TextView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="60dip"
+        android:layout_marginTop="10dip" >
+
+        <ImageView
+            android:id="@+id/power"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dip" >
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/points"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dip" >
+        </ImageView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="83dip"
+        android:layout_marginTop="32dip" >
+
+        <ImageView
+            android:id="@+id/hour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dip" >
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/zones"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+        </ImageView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="95dip"
+        android:layout_marginTop="46dip" >
+
+        <ImageView
+            android:id="@+id/placestar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/place"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+        </ImageView>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/alert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="30dip"
+        android:layout_marginTop="13dip"
+        android:orientation="vertical"
+        android:src="@drawable/alert0" >
+    </ImageView>
+
+    <ImageButton
+        android:id="@+id/option"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="30dip"
+        android:layout_marginTop="37dip"
+        android:background="@null"
+        android:orientation="vertical"
+        android:src="@drawable/button_option" >
+    </ImageButton>
+
+    <ImageButton
+        android:id="@+id/refresh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dip"
+        android:layout_marginTop="37dip"
+        android:background="@null"
+        android:orientation="vertical"
+        android:src="@drawable/button_refresh" >
+    </ImageButton>
+
 </RelativeLayout>
