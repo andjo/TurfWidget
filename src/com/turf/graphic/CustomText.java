@@ -8,13 +8,14 @@ import android.graphics.Paint;
 import android.graphics.Paint.Align;
 import android.graphics.Rect;
 import android.graphics.Typeface;
+//import android.util.Log;
 
 public class CustomText 
 {
 	private Context mContext;
 	private float scale;
-	private int fontSizeSmall = 10;
-	private int fontSizeBig = 13;
+	private int fontSizeSmall = 14;
+	private int fontSizeBig = 20;
 	
 	public CustomText(Context context)
 	{
@@ -23,7 +24,7 @@ public class CustomText
 	}
 	
 	private Bitmap createCustomText(String text, int fontSize) {   
-		Typeface tf = Typeface.createFromAsset(mContext.getAssets(),"fonts/Insanehours.ttf");
+		Typeface tf = Typeface.createFromAsset(mContext.getAssets(),"fonts/Insanehours2.ttf");
 	    Paint paint = new Paint();
 	    paint.setAntiAlias(true);
 	    paint.setSubpixelText(true);
@@ -50,25 +51,35 @@ public class CustomText
 	public Bitmap createCustomPoints(int value)
 	{
 		String text = Integer.toString(value);
+//		text = "8888";
 		return createCustomText(text, fontSizeBig);
 	}
 
 	
-	public Bitmap createCustomHours(int value)
+//	public Bitmap createCustomHours(int value)
+//	{
+//		String text = "+" + Integer.toString(value);
+//		text = "+123456 7";
+//		return createCustomText(text, fontSizeSmall);
+//	}
+//	
+//	public Bitmap createCustomZones(int value)
+//	{
+//		String text = Integer.toString(value) + "Z";
+//		return createCustomText(text, fontSizeSmall);
+//	}
+
+	public Bitmap createCustomHourZones(int hour, int zones)
 	{
-		String text = "+" + Integer.toString(value);
-		return createCustomText(text, fontSizeSmall);
-	}
-	
-	public Bitmap createCustomZones(int value)
-	{
-		String text = Integer.toString(value) + "Z";
+		String text = "+" + Integer.toString(hour) + " " + Integer.toString(zones) + "Z";
+//		text = "+500 82Z";
 		return createCustomText(text, fontSizeSmall);
 	}
 
 	public Bitmap createCustomPlace(int value)
 	{
 		String text = Integer.toString(value);
+//		text = "123";
 		return createCustomText(text, fontSizeSmall);
 	}
 }

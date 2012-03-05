@@ -20,8 +20,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
+        android:layout_marginLeft="30dip"
         android:layout_marginRight="70dip"
-        android:layout_marginTop="15dip" >
+        android:layout_marginTop="6dip"
+        android:gravity="center_vertical" >
 
         <ImageView
             android:id="@+id/power"
@@ -43,18 +45,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
+        android:layout_marginLeft="60dip"
         android:layout_marginRight="70dip"
-        android:layout_marginTop="32dip" >
+        android:layout_marginTop="26dip" >
 
         <ImageView
-            android:id="@+id/hour"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="10dip" >
-        </ImageView>
-
-        <ImageView
-            android:id="@+id/zones"
+            android:id="@+id/hourzones"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
         </ImageView>
@@ -65,8 +61,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
+        android:layout_marginLeft="60dip"
         android:layout_marginRight="70dip"
-        android:layout_marginTop="46dip" >
+        android:layout_marginTop="39dip"
+        android:gravity="center_vertical" >
 
         <ImageView
             android:id="@+id/placestar"
@@ -116,7 +114,7 @@
         android:layout_alignParentLeft="true"
         android:background="@null"
         android:orientation="vertical"
-        android:paddingBottom="20dip"
+        android:paddingBottom="14dip"
         android:paddingLeft="32dip"
         android:paddingRight="10dip"
         android:paddingTop="10dip"

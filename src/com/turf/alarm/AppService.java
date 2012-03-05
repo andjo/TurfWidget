@@ -125,14 +125,13 @@ public class AppService extends Service{
 		int freq = Integer.parseInt(Prefs.getUpdateFreq(context));
 		if(TurfWidget.DEBUG) {Log.v("AppService" , "updateViews: " + (freq/60000) + " min");	}	
 
-		CustomText customText = new CustomText(context);			
+		CustomText customText = new CustomText(context);
 		if(CharStats.isAccount())
 		{
 			statsView.setTextViewText(R.id.error, "");
-			statsView.setImageViewResource(R.id.power, R.drawable.power_icon);			
-			statsView.setImageViewBitmap(R.id.points, customText.createCustomPoints(CharStats.getPoints()));			
-			statsView.setImageViewBitmap(R.id.hour, customText.createCustomHours(CharStats.getHour()));			
-			statsView.setImageViewBitmap(R.id.zones, customText.createCustomZones(CharStats.getZones()));
+			statsView.setImageViewResource(R.id.power, R.drawable.power_icon);
+			statsView.setImageViewBitmap(R.id.points, customText.createCustomPoints(CharStats.getPoints()));
+			statsView.setImageViewBitmap(R.id.hourzones, customText.createCustomHourZones(CharStats.getHour(), CharStats.getZones()));
 			statsView.setImageViewResource(R.id.placestar, R.drawable.place);	
 			statsView.setImageViewBitmap(R.id.place, customText.createCustomPlace(CharStats.getPlace()));
 
@@ -154,16 +153,14 @@ public class AppService extends Service{
 				statsView.setImageViewBitmap(R.id.points, customText.createCustomPoints(CharStats.getPoints()));
 				statsView.setImageViewResource(R.id.alert, R.drawable.alert0);
 			}
-
 		}
 		else
 		{
 			statsView.setTextViewText(R.id.error, "No Account\nChange settings");
 			int emptyImage = R.drawable.empty;
-			statsView.setImageViewResource(R.id.power, emptyImage);			
-			statsView.setImageViewResource(R.id.points, emptyImage);			
-			statsView.setImageViewResource(R.id.hour, emptyImage);			
-			statsView.setImageViewResource(R.id.zones, emptyImage);
+			statsView.setImageViewResource(R.id.power, emptyImage);
+			statsView.setImageViewResource(R.id.points, emptyImage);
+			statsView.setImageViewResource(R.id.hourzones, emptyImage);
 			statsView.setImageViewResource(R.id.place, emptyImage);
 		}
 
@@ -192,10 +189,9 @@ public class AppService extends Service{
 			statsView.setTextViewText(R.id.error, TurfWidget.getError());
 		}
 		int emptyImage = R.drawable.empty;
-		statsView.setImageViewResource(R.id.power, emptyImage);			
-		statsView.setImageViewResource(R.id.points, emptyImage);			
-		statsView.setImageViewResource(R.id.hour, emptyImage);			
-		statsView.setImageViewResource(R.id.zones, emptyImage);	
+		statsView.setImageViewResource(R.id.power, emptyImage);
+		statsView.setImageViewResource(R.id.points, emptyImage);
+		statsView.setImageViewResource(R.id.hourzones, emptyImage);
 		statsView.setImageViewResource(R.id.place, emptyImage);
 
 		return statsView;
@@ -208,7 +204,7 @@ public class AppService extends Service{
 		statsView.setImageViewResource(R.id.alert, R.drawable.alert0);
 		AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
 		ComponentName provider = new ComponentName(context, TurfWidget.class);
-		int[] appWidgetIds = appWidgetManager.getAppWidgetIds(provider);	
+		int[] appWidgetIds = appWidgetManager.getAppWidgetIds(provider);
 		appWidgetManager.updateAppWidget(appWidgetIds, statsView);
 	}
 
