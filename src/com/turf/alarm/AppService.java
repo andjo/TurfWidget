@@ -17,6 +17,7 @@ import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.media.AudioManager;
 import android.os.IBinder;
 import android.os.Vibrator;
 import android.util.Log;
@@ -27,7 +28,6 @@ public class AppService extends Service{
 
 	public static String textView = "";
 	public static final String UPDATE_WIDGET_SERVICE = "service.APPWIDGET_UPDATE";
-	public static String prevZones;
 
 	public AppService getService() {
 		return AppService.this;
@@ -135,23 +135,26 @@ public class AppService extends Service{
 			statsView.setImageViewResource(R.id.placestar, R.drawable.place);	
 			statsView.setImageViewBitmap(R.id.place, customText.createCustomPlace(CharStats.getPlace()));
 
-			if(CharStats.isAlert())
+			if(CharStats.getPrevZonesAlert())
 			{
-				if(vibrator && Prefs.getVibrate(context) && CharStats.getPrevZonesAlert())
+				AudioManager manager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+				boolean silent = manager.getRingerMode() == AudioManager.RINGER_MODE_SILENT;
+
+				if(vibrator && Prefs.getVibrate(context) && !silent && !CharStats.isAlert())
 				{
 					((Vibrator)context.getSystemService(Context.VIBRATOR_SERVICE)).vibrate(600);
 
-					if(TurfWidget.DEBUG) {Log.e("Vibrate", "The device is vibrating!");	}		
+					if(TurfWidget.DEBUG) {Log.e("Vibrate", "The device is vibrating!");	}
 
 				}
 
 				statsView.setImageViewResource(R.id.alert, R.drawable.alert1);
-				CharStats.setAlert(false);
+				CharStats.setAlert(true);
 			}
 			else
 			{
-				statsView.setImageViewBitmap(R.id.points, customText.createCustomPoints(CharStats.getPoints()));
 				statsView.setImageViewResource(R.id.alert, R.drawable.alert0);
+				CharStats.setAlert(false);
 			}
 		}
 		else
@@ -199,6 +202,7 @@ public class AppService extends Service{
 
 	public static void resetAlert(Context context)
 	{
+		CharStats.setAlert(false);
 		RemoteViews statsView = new RemoteViews(context.getPackageName(), R.layout.main);
 
 		statsView.setImageViewResource(R.id.alert, R.drawable.alert0);

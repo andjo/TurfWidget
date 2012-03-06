@@ -41,6 +41,9 @@ public class CharStats
 	public static synchronized void setAlert(boolean alert)
 	{
 		CharStats.alert = alert;
+		if (!alert) {
+			prevZones = getZones();
+		}
 	}
 	
 	public static synchronized boolean isAccount()
@@ -54,35 +57,20 @@ public class CharStats
 	}
 	public static boolean getPrevZonesAlert()
 	{
-		if(prevZones == 0)
+		if(prevZones == 0 || prevZones < getZones())
 		{
 			prevZones = getZones();
+			return false;
 		}
 		
-		if(prevZones != getZones())
+		if(prevZones > getZones())
 		{
-			prevZones = getZones();
 			return true;
 		}
 		
 		return false;
 	}
 	
-	public static void setAlert(String attrValueAlert)
-	{
-		
-		int alerts = Integer.valueOf(attrValueAlert);
-		
-		if(alerts > 0)
-		{
-			CharStats.alert = true;
-		}
-		else
-		{
-			CharStats.alert = false;;
-		}
-		
-	}
 	public static void setPlace(int place)
 	{
 		CharStats.place = place;
