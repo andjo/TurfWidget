@@ -153,7 +153,7 @@ public class AppService extends Service{
 			}
 			else
 			{
-				statsView.setImageViewResource(R.id.alert, R.drawable.alert0);
+				statsView.setImageViewResource(R.id.alert, R.drawable.empty);
 				CharStats.setAlert(false);
 			}
 		}
@@ -205,7 +205,7 @@ public class AppService extends Service{
 		CharStats.setAlert(false);
 		RemoteViews statsView = new RemoteViews(context.getPackageName(), R.layout.main);
 
-		statsView.setImageViewResource(R.id.alert, R.drawable.alert0);
+		statsView.setImageViewResource(R.id.alert, R.drawable.empty);
 		AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
 		ComponentName provider = new ComponentName(context, TurfWidget.class);
 		int[] appWidgetIds = appWidgetManager.getAppWidgetIds(provider);
