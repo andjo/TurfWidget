@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/widget"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/widgetbg" >
+    android:padding="@dimen/widget_margin" >
 
+    <RelativeLayout
+        android:id="@+id/widget"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/bg" >
     <TextView
         android:id="@+id/error"
         android:layout_width="wrap_content"
@@ -22,8 +26,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="22dip"
-        android:layout_marginRight="52dip"
-        android:layout_marginTop="21dip"
+        android:layout_marginRight="52dp"
+        android:layout_marginTop="15dip"
         android:gravity="center_vertical" >
 
         <ImageView
@@ -47,7 +51,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="22dip"
         android:layout_marginRight="52dip"
-        android:layout_marginTop="43dip"
+        android:layout_marginTop="37dip"
         android:gravity="center_vertical" >
 
         <ImageView
@@ -64,7 +68,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="40dip"
         android:layout_marginRight="52dip"
-        android:layout_marginTop="58dip"
+        android:layout_marginTop="52dip"
         android:gravity="center_vertical" >
 
         <ImageView
@@ -88,8 +92,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:orientation="vertical"
-        android:paddingRight="20dip"
-        android:paddingTop="30dip"
+        android:paddingRight="15dip"
+        android:paddingTop="15dip"
         android:src="@drawable/alert0" >
     </ImageView>
 
@@ -101,9 +105,9 @@
         android:layout_alignParentRight="true"
         android:background="@null"
         android:orientation="vertical"
-        android:paddingBottom="25dip"
+        android:paddingBottom="15dip"
         android:paddingLeft="5dip"
-        android:paddingRight="20dip"
+        android:paddingRight="15dip"
         android:paddingTop="5dip"
         android:src="@drawable/button_option" >
     </ImageButton>
@@ -116,11 +120,12 @@
         android:layout_alignParentLeft="true"
         android:background="@null"
         android:orientation="vertical"
-        android:paddingBottom="22dip"
-        android:paddingLeft="22dip"
+        android:paddingBottom="15dip"
+        android:paddingLeft="15dip"
         android:paddingRight="10dip"
         android:paddingTop="10dip"
         android:src="@drawable/button_refresh" >
     </ImageButton>
 
 </RelativeLayout>
+</FrameLayout>
