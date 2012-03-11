@@ -47,7 +47,8 @@
                     android:id="@+id/power"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="2dip" />
+                    android:layout_marginRight="3dip"
+                    android:paddingTop="2dp" />
 
                 <ImageView
                     android:id="@+id/points"
@@ -107,11 +108,8 @@
             android:layout_alignParentTop="true"
             android:background="@null"
             android:orientation="vertical"
-            android:paddingBottom="9dp"
-            android:paddingLeft="9dp"
-            android:paddingRight="10dp"
-            android:paddingTop="10dp"
-            android:src="@drawable/button_option" >
+            android:padding="7dp"
+            android:src="@drawable/settings" >
         </ImageButton>
 
         <ImageButton
@@ -122,11 +120,8 @@
             android:layout_alignParentRight="true"
             android:background="@null"
             android:orientation="vertical"
-            android:paddingBottom="10dp"
-            android:paddingLeft="9dp"
-            android:paddingRight="10dp"
-            android:paddingTop="9dp"
-            android:src="@drawable/button_refresh" >
+            android:padding="7dp"
+            android:src="@drawable/refresh" >
         </ImageButton>
     </RelativeLayout>
 

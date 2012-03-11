@@ -89,7 +89,7 @@ public class AppService extends Service{
 		update.setAction(TurfWidget.TURF_LAUNCH);
 
 		PendingIntent updatePendingIntent = PendingIntent.getBroadcast(this, 0, update, 0);
-		statsView.setOnClickPendingIntent(R.id.widget, updatePendingIntent);
+		statsView.setOnClickPendingIntent(R.id.TextWrapper, updatePendingIntent);
 
 		Intent refresh = new Intent(this, TurfWidget.class);
 		refresh.setAction(TurfWidget.WIDGET_UPDATE);
@@ -129,10 +129,10 @@ public class AppService extends Service{
 		if(CharStats.isAccount())
 		{
 			statsView.setTextViewText(R.id.error, "");
-			statsView.setImageViewResource(R.id.power, R.drawable.power_icon);
+			statsView.setImageViewResource(R.id.power, R.drawable.power);
 			statsView.setImageViewBitmap(R.id.points, customText.createCustomPoints(CharStats.getPoints()));
 			statsView.setImageViewBitmap(R.id.hourzones, customText.createCustomHourZones(CharStats.getHour(), CharStats.getZones()));
-			statsView.setImageViewResource(R.id.placestar, R.drawable.place);	
+			statsView.setImageViewResource(R.id.placestar, R.drawable.star);	
 			statsView.setImageViewBitmap(R.id.place, customText.createCustomPlace(CharStats.getPlace()));
 
 			if(CharStats.getPrevZonesAlert())
