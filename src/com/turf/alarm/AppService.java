@@ -148,7 +148,7 @@ public class AppService extends Service{
 
 				}
 
-				statsView.setImageViewResource(R.id.alert, R.drawable.alert1);
+				statsView.setImageViewResource(R.id.alert, R.drawable.alert);
 				CharStats.setAlert(true);
 			}
 			else
