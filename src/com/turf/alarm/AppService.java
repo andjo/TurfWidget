@@ -64,7 +64,7 @@ public class AppService extends Service{
 
 		CharStats currentChar = new CharStats();
 
-		currentChar = ParseXML.parseXML(Prefs.getUserEmail(this), this);
+		currentChar = ParseXML.parseXML(Prefs.getUserEmail(this));
 
 		RemoteViews statsView = null;
 		AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(this);

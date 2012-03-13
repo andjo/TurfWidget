@@ -14,7 +14,6 @@ import org.xml.sax.XMLReader;
 import com.turf.widget.turf.CharStats;
 import com.turf.widget.turf.TurfWidget;
 
-import android.content.Context;
 import android.util.Log;
 
 public class ParseXML
@@ -22,7 +21,7 @@ public class ParseXML
 	private static final String URL_ADRESS = "http://www.turfa.se/thirdparty/user.php/";
 	private static final String DEBUG_TAG = "ParseXML";
 	
-	public static CharStats parseXML(String email, Context context)
+	public static CharStats parseXML(String email)
 	{
 		try
 		{
