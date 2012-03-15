@@ -132,7 +132,7 @@ public class AppService extends Service{
 			statsView.setImageViewResource(R.id.power, R.drawable.power);
 			statsView.setImageViewBitmap(R.id.points, customText.createCustomPoints(CharStats.getPoints()));
 			statsView.setImageViewBitmap(R.id.hourzones, customText.createCustomHourZones(CharStats.getHour(), CharStats.getZones()));
-			statsView.setImageViewResource(R.id.placestar, R.drawable.star);	
+			statsView.setImageViewResource(R.id.placestar, R.drawable.star);
 			statsView.setImageViewBitmap(R.id.place, customText.createCustomPlace(CharStats.getPlace()));
 
 			if(CharStats.getPrevZonesAlert())
@@ -164,6 +164,7 @@ public class AppService extends Service{
 			statsView.setImageViewResource(R.id.power, emptyImage);
 			statsView.setImageViewResource(R.id.points, emptyImage);
 			statsView.setImageViewResource(R.id.hourzones, emptyImage);
+			statsView.setImageViewResource(R.id.placestar, emptyImage);
 			statsView.setImageViewResource(R.id.place, emptyImage);
 		}
 
@@ -195,6 +196,7 @@ public class AppService extends Service{
 		statsView.setImageViewResource(R.id.power, emptyImage);
 		statsView.setImageViewResource(R.id.points, emptyImage);
 		statsView.setImageViewResource(R.id.hourzones, emptyImage);
+		statsView.setImageViewResource(R.id.placestar, emptyImage);
 		statsView.setImageViewResource(R.id.place, emptyImage);
 
 		return statsView;
