@@ -14,7 +14,7 @@ public class CustomText
 {
 	private Context mContext;
 	private float scale;
-	private int fontSizeSmall = 14;
+	private int fontSizeSmall = 16;
 	private int fontSizeBig = 20;
 	
 	public CustomText(Context context)
