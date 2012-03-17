@@ -2,18 +2,20 @@
 <resources>
 
     <string-array name="update_name">
+        <item>2 min</item>
         <item>15 min</item>
         <item>30 min</item>
         <item>1 h</item>
-        <item>2 h</item>
         <item>4 h</item>
-    </string-array>
+        <item>Never</item>
+        </string-array>
     <string-array name="update_freq">
+        <item>120000</item>
         <item>900000</item>
         <item>1800000</item>
         <item>3600000</item>
-        <item>7200000</item>
         <item>14400000</item>
-    </string-array>
+        <item>-1</item>
+        </string-array>
 
 </resources>

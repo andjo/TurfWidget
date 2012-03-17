@@ -108,7 +108,12 @@ public class AppService extends Service{
 
 
 		int freq = Integer.parseInt(Prefs.getUpdateFreq(this));
-		OnAlarmReceiver.alarmManager.set(AlarmManager.RTC, cal.getTimeInMillis()+freq, OnAlarmReceiver.alarmPedningIntent);
+		if (freq != -1) {
+			if(TurfWidget.DEBUG) { Log.d(TurfWidget.DEBUG_STRING, "Scheduled update"); }
+			OnAlarmReceiver.alarmManager.set(AlarmManager.RTC, cal.getTimeInMillis()+freq, OnAlarmReceiver.alarmPedningIntent);
+		} else {
+			if(TurfWidget.DEBUG) { Log.d(TurfWidget.DEBUG_STRING, "Update disabled"); }
+		}
 
 		return START_STICKY;
 	}
@@ -122,8 +127,10 @@ public class AppService extends Service{
 
 		RemoteViews statsView = new RemoteViews(context.getPackageName(), R.layout.main);
 
-		int freq = Integer.parseInt(Prefs.getUpdateFreq(context));
-		if(TurfWidget.DEBUG) {Log.v("AppService" , "updateViews: " + (freq/60000) + " min");	}	
+		if(TurfWidget.DEBUG) {
+			int freq = Integer.parseInt(Prefs.getUpdateFreq(context));
+			Log.v("AppService" , "updateViews: " + (freq/60000) + " min");
+		}
 
 		CustomText customText = new CustomText(context);
 		if(CharStats.isAccount())
