@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<appwidget-provider
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:minHeight="70dip"
-	android:minWidth="150dp"
-	android:initialLayout="@layout/main"
-	android:configure="com.turf.widget.turf.Prefs">
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:configure="com.turf.widget.turf.Prefs"
+    android:initialLayout="@layout/main"
+    android:minHeight="70dip"
+    android:minWidth="150dp" >
+
 </appwidget-provider>

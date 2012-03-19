@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="widget_name">Turf Widget</string>
-    <string name="prefs_name">Turf Widget Settings</string>
-    
+    <string name="prefs_name">Turf Widget Settings</string>    
     
     <string name="user_email_title">User email</string>
     <string name="user_email_summary">Your user email for Turf</string>
     <string name="user_email_dialog">Enter your user email</string>
-    
     
     <string name="update_freq_title">Update Frequency</string>
     <string name="update_freq_dialog">Choose how often to update:</string>

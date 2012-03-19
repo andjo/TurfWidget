@@ -3,5 +3,5 @@
 
     <dimen name="widget_margin">8dp</dimen>
     <dimen name="widget_margin_landscape_vertical">0dp</dimen>
-    
+
 </resources>

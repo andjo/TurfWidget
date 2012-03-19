@@ -8,7 +8,7 @@
         <item>1 h</item>
         <item>4 h</item>
         <item>Never</item>
-        </string-array>
+    </string-array>
     <string-array name="update_freq">
         <item>120000</item>
         <item>900000</item>
@@ -16,6 +16,6 @@
         <item>3600000</item>
         <item>14400000</item>
         <item>-1</item>
-        </string-array>
+    </string-array>
 
 </resources>

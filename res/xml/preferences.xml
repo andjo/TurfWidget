@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen
-	xmlns:android="http://schemas.android.com/apk/res/android">
-	<CheckBoxPreference
-		android:key="vibrate"
-		android:title="@string/vibrate_title"
-		android:summary="@string/vibrate_summary"
-		android:defaultValue="true" />
-	<EditTextPreference
-		android:key="user_email"
-		android:title="@string/user_email_title"
-		android:summary="@string/user_email_summary"
-		android:dialogTitle="@string/user_email_dialog" />
-	<ListPreference
-		android:key="update_freq"
-		android:title="@string/update_freq_title"
-		android:summary="@string/update_freq_dialog"
-		android:dialogTitle="@string/update_freq_dialog"
-		android:entries="@array/update_name"
-		android:entryValues="@array/update_freq"
-		android:defaultValue="1800000" />
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="vibrate"
+        android:summary="@string/vibrate_summary"
+        android:title="@string/vibrate_title" />
+
+    <EditTextPreference
+        android:dialogTitle="@string/user_email_dialog"
+        android:key="user_email"
+        android:summary="@string/user_email_summary"
+        android:title="@string/user_email_title" />
+
+    <ListPreference
+        android:defaultValue="1800000"
+        android:dialogTitle="@string/update_freq_dialog"
+        android:entries="@array/update_name"
+        android:entryValues="@array/update_freq"
+        android:key="update_freq"
+        android:summary="@string/update_freq_dialog"
+        android:title="@string/update_freq_title" />
+
 </PreferenceScreen>

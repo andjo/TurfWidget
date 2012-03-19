@@ -4,36 +4,31 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-//import android.util.Log;
-
 import com.turf.widget.turf.CharStats;
 
-
-public class ParseHandler extends DefaultHandler {
+public class ParseHandler extends DefaultHandler
+{
 
 	private CharStats charStats = new CharStats();
-	
 
-	public CharStats getCharStats() {
+	public CharStats getCharStats()
+	{
 		return this.charStats;
 	}
 
 	@Override
-	public void startDocument() throws SAXException {
+	public void startDocument() throws SAXException
+	{
 		this.charStats = new CharStats();
 	}
 
-//	@Override
-//	public void endDocument() throws SAXException {
-//		// Nothing to do
-//	}
-
 	@Override
 	public void startElement(String namespaceURI, String localName,
-			String qName, Attributes atts) throws SAXException {
+	                         String qName, Attributes atts) throws SAXException
+	{
 		if (localName.equals("user")) {
 
-			//Extract stats			
+			// Extract stats
 			String attrValuePoints = atts.getValue("points");
 			String attrValueZones = atts.getValue("zones");
 			String attrValueHour = atts.getValue("hour");
@@ -46,12 +41,4 @@ public class ParseHandler extends DefaultHandler {
 		}
 	}
 
-//	@Override
-//	public void endElement(String namespaceURI, String localName, String qName)
-//	throws SAXException {
-//		if (localName.equals("user"))
-//		{
-//			//Do nothing here
-//		}
-//	}
 }
