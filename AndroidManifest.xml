@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.turf.widget.turf"
     android:versionCode="10"
-    android:versionName="0.3.0 [AJ-development]" >
+    android:versionName="0.3.2 [AJ-development]" >
 
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.INTERNET" />
