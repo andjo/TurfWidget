@@ -62,6 +62,12 @@ public class TurfWidget extends AppWidgetProvider
 		} else if (TURF_LAUNCH.equals(intent.getAction())) {
 
 			AppService.resetAlert(context);
+			// FIXME: Just re-bind eventhandlers after updateAppWidget in resetAlert().
+			Intent serviceIntent = new Intent(context, AppService.class);
+			serviceIntent.putExtra("vibrate", false);
+			serviceIntent.putExtra("kill", false);
+			context.startService(serviceIntent);
+
 			Intent launchIntent = context.getPackageManager().getLaunchIntentForPackage("se.turfwars.android");
 
 			if (launchIntent == null) {

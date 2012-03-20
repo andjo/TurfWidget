@@ -232,6 +232,9 @@ public class AppService extends Service
 		AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
 		ComponentName provider = new ComponentName(context, TurfWidget.class);
 		int[] appWidgetIds = appWidgetManager.getAppWidgetIds(provider);
+
+		// FIXME: Need to bind eventhandlers here? 
+		
 		appWidgetManager.updateAppWidget(appWidgetIds, statsView);
 	}
 
