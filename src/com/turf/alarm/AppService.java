@@ -35,6 +35,11 @@ public class AppService extends Service
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId)
 	{
+		if (TurfWidget.DEBUG) {
+			Log.d(TurfWidget.DEBUG_STRING, "onStartCommand");
+		}
+
+		// Parse in parameters and stop service if desired.
 		Boolean vibrator;
 		try {
 			vibrator = intent.getExtras().containsKey("vibrate");
@@ -55,22 +60,40 @@ public class AppService extends Service
 			vibrator = false;
 		}
 
-		CharStats currentChar = new CharStats();
+		// Get stats from network.
+		CharStats currentChar = getCurrentChar();
 
+		// Create RemoteViews
+		RemoteViews statsView = getStatsView(currentChar, vibrator);
+
+		// Update all widgets.
+		updateWidgets(statsView);
+
+		// Schedule next update
+		scheduleUpdate();
+
+		return START_STICKY;
+	}
+
+	private CharStats getCurrentChar()
+	{
+		CharStats currentChar = new CharStats(); // FIXME: why new?
 		currentChar = ParseXML.parseXML(Prefs.getUserEmail(this));
+		return currentChar;
+	}
 
-		RemoteViews statsView = null;
-		AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(this);
-
-		ComponentName provider = new ComponentName(this, TurfWidget.class);
-		int[] appWidgetIds = appWidgetManager.getAppWidgetIds(provider);
-
+	private RemoteViews getStatsView(CharStats currentChar, Boolean vibrator)
+	{
+		RemoteViews statsView;
 		if (TurfWidget.getError() == null) {
 			statsView = updateViews(this, currentChar, vibrator);
 		} else {
 			statsView = updateViewErrors(this);
 		}
 
+		// Bind event handlers to the views.
+
+		// Prefs
 		Intent prefsIntent = new Intent(this, Prefs.class);
 		PendingIntent prefsPendingIntent = PendingIntent.getActivity(this,
 		                                                             0,
@@ -78,40 +101,50 @@ public class AppService extends Service
 		                                                             0);
 		statsView.setOnClickPendingIntent(R.id.option, prefsPendingIntent);
 
+		// Launch Turf
 		Intent update = new Intent(this, TurfWidget.class);
 		update.setAction(TurfWidget.TURF_LAUNCH);
-
 		PendingIntent updatePendingIntent = PendingIntent.getBroadcast(this, 0,
 		                                                               update,
 		                                                               0);
 		statsView.setOnClickPendingIntent(R.id.TextWrapper, updatePendingIntent);
 
+		// Refresh
 		Intent refresh = new Intent(this, TurfWidget.class);
 		refresh.setAction(TurfWidget.WIDGET_UPDATE);
-
 		PendingIntent refreshPendingIntent = PendingIntent.getBroadcast(this,
 		                                                                0,
 		                                                                refresh,
 		                                                                0);
 		statsView.setOnClickPendingIntent(R.id.refresh, refreshPendingIntent);
 
+		return statsView;
+	}
+
+	private void updateWidgets(RemoteViews statsView)
+	{
+		AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(this);
+		ComponentName provider = new ComponentName(this, TurfWidget.class);
+		int[] appWidgetIds = appWidgetManager.getAppWidgetIds(provider);
 		appWidgetManager.updateAppWidget(appWidgetIds, statsView);
+	}
 
-		Calendar cal = Calendar.getInstance();
-
-		OnAlarmReceiver.alarmManager = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
-		Intent alarmIntent = new Intent(this, OnAlarmReceiver.class);
-		alarmIntent.setAction(UPDATE_WIDGET_SERVICE);
-		OnAlarmReceiver.alarmPedningIntent = PendingIntent.getBroadcast(this,
-		                                                                0,
-		                                                                alarmIntent,
-		                                                                0);
-
+	private void scheduleUpdate()
+	{
 		int freq = Integer.parseInt(Prefs.getUpdateFreq(this));
 		if (freq != -1) {
 			if (TurfWidget.DEBUG) {
-				Log.d(TurfWidget.DEBUG_STRING, "Scheduled update");
+				Log.d(TurfWidget.DEBUG_STRING, "Scheduling update");
 			}
+			Calendar cal = Calendar.getInstance();
+
+			OnAlarmReceiver.alarmManager = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
+			Intent alarmIntent = new Intent(this, OnAlarmReceiver.class);
+			alarmIntent.setAction(UPDATE_WIDGET_SERVICE);
+			OnAlarmReceiver.alarmPedningIntent = PendingIntent.getBroadcast(this,
+			                                                                0,
+			                                                                alarmIntent,
+			                                                                0);
 			OnAlarmReceiver.alarmManager.set(AlarmManager.RTC,
 			                                 cal.getTimeInMillis() + freq,
 			                                 OnAlarmReceiver.alarmPedningIntent);
@@ -120,8 +153,6 @@ public class AppService extends Service
 				Log.d(TurfWidget.DEBUG_STRING, "Update disabled");
 			}
 		}
-
-		return START_STICKY;
 	}
 
 	private static RemoteViews updateViews(Context context,
@@ -233,8 +264,8 @@ public class AppService extends Service
 		ComponentName provider = new ComponentName(context, TurfWidget.class);
 		int[] appWidgetIds = appWidgetManager.getAppWidgetIds(provider);
 
-		// FIXME: Need to bind eventhandlers here? 
-		
+		// FIXME: Need to bind eventhandlers here?
+
 		appWidgetManager.updateAppWidget(appWidgetIds, statsView);
 	}
 
