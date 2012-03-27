@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:configure="com.turf.widget.turf.Prefs"
+    android:initialLayout="@layout/main"
+    android:minHeight="40dip"
+    android:minWidth="110dp"
+    android:resizeMode="horizontal|vertical" >
+
+</appwidget-provider>
