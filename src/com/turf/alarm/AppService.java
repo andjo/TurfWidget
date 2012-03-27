@@ -10,6 +10,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.media.AudioManager;
+import android.os.AsyncTask;
 import android.os.IBinder;
 import android.os.Vibrator;
 import android.util.Log;
@@ -60,19 +61,42 @@ public class AppService extends Service
 			vibrator = false;
 		}
 
-		// Get stats from network.
-		CharStats currentChar = getCurrentChar();
-
-		// Create RemoteViews
-		RemoteViews statsView = getStatsView(currentChar, vibrator);
-
-		// Update all widgets.
-		updateWidgets(statsView);
-
-		// Schedule next update
-		scheduleUpdate();
+		new updateTask().execute(vibrator);
 
 		return START_STICKY;
+	}
+
+	private class updateTask extends AsyncTask<Boolean, Void, Object[]>
+	{
+		@Override
+		protected void onPreExecute()
+		{
+			// TODO: Show progress indicator
+		}
+
+		@Override
+		protected Object[] doInBackground(Boolean... vibrate)
+		{
+			// Get stats from network.
+			CharStats currentChar = getCurrentChar();
+
+			return new Object[] { currentChar, vibrate[0] };
+		}
+
+		protected void onPostExecute(Object[] o)
+		{
+			// TODO: Kill progress indicator
+
+			// Create RemoteViews
+			RemoteViews statsView = getStatsView((CharStats) o[0],
+			                                     (Boolean) o[1]);
+
+			// Update all widgets.
+			updateWidgets(statsView);
+
+			// Schedule next update
+			scheduleUpdate();
+		}
 	}
 
 	private CharStats getCurrentChar()
