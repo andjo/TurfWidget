@@ -11,11 +11,7 @@
         android:id="@+id/widget"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="@drawable/bg"
-        android:paddingBottom="3dp"
-        android:paddingLeft="2dp"
-        android:paddingRight="3dp"
-        android:paddingTop="3dp" >
+        android:background="@drawable/bg" >
 
         <TextView
             android:id="@+id/error"
