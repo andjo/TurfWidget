@@ -24,6 +24,18 @@ public class ParseXML
 
 	public static CharStats parseXML(String email)
 	{
+		if (TurfWidget.DEBUG) {
+			Log.d(TurfWidget.DEBUG_STRING, "parseXML");
+			// Simulating somewhat slow network.
+			try {
+				Log.d(TurfWidget.DEBUG_STRING, "sleeping..");
+				Thread.sleep(3000);
+				Log.d(TurfWidget.DEBUG_STRING, "..done");
+			}
+			catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
 		try {
 			URL url = new URL(URL_ADRESS + email);
 
