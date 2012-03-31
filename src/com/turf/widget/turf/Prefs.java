@@ -25,7 +25,8 @@ public class Prefs extends PreferenceActivity
 
 	private static String CONFIGURE_ACTION = "android.appwidget.action.APPWIDGET_CONFIGURE";
 
-	@Override
+	@SuppressWarnings("deprecation") // TODO Fix warning
+    @Override
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
