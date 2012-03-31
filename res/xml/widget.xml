@@ -3,6 +3,6 @@
     android:configure="com.turf.widget.turf.Prefs"
     android:initialLayout="@layout/main"
     android:minHeight="70dip"
-    android:minWidth="150dp" >
+    android:minWidth="110dp" >
 
 </appwidget-provider>
