@@ -3,14 +3,23 @@
     <string name="widget_name">Turf Widget</string>
     <string name="prefs_name">Turf Widget Settings</string>    
     
-    <string name="user_email_title">User email</string>
-    <string name="user_email_summary">Your user email for Turf</string>
-    <string name="user_email_dialog">Enter your user email</string>
+    <string name="user_email_title">Turf account</string>
+    <string name="user_email_summary">Your account email used for Turf</string>
+    <string name="user_email_dialog">Enter your Google account email</string>
     
     <string name="update_freq_title">Update Frequency</string>
-    <string name="update_freq_dialog">Choose how often to update:</string>
+    <string name="update_freq_dialog">Choose how often to update</string>
     
     <string name="vibrate_title">Vibrate</string>
     <string name="vibrate_summary">Vibrate on alert</string>
+    
+    <string name="unknown"></string>
+    <string name="power">Power</string>
+    <string name="per_hour">Per hour</string>
+    <string name="place">Place</string>
+    <string name="alert">Alert</string>
+    
+    <string name="settings">Settings</string>
+    <string name="refresh">Refresh</string>
     
 </resources>

@@ -47,19 +47,22 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="3dp"
+                    android:contentDescription="@string/power"
                     android:paddingTop="2dp" />
 
                 <ImageView
                     android:id="@+id/points"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/unknown" />
             </LinearLayout>
 
             <ImageView
                 android:id="@+id/hourzones"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:contentDescription="@string/per_hour" />
 
             <LinearLayout
                 android:id="@+id/PlaceLine"
@@ -72,12 +75,14 @@
                     android:id="@+id/placestar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="2dip" />
+                    android:layout_marginRight="2dip"
+                    android:contentDescription="@string/place" />
 
                 <ImageView
                     android:id="@+id/place"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/unknown" />
             </LinearLayout>
         </LinearLayout>
 
@@ -87,6 +92,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
+            android:contentDescription="@string/alert"
             android:orientation="vertical"
             android:paddingBottom="7dp"
             android:paddingLeft="7dp" >
@@ -99,6 +105,7 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
             android:background="@null"
+            android:contentDescription="@string/settings"
             android:orientation="vertical"
             android:paddingBottom="4dp"
             android:paddingLeft="5dp"
@@ -114,6 +121,7 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:background="@null"
+            android:contentDescription="@string/refresh"
             android:orientation="vertical"
             android:paddingBottom="4dp"
             android:paddingLeft="5dp"
