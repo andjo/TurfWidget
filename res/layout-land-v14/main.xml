@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:paddingBottom="@dimen/widget_margin_landscape_vertical"
+    android:paddingLeft="@dimen/widget_margin"
+    android:paddingRight="@dimen/widget_margin"
+    android:paddingTop="@dimen/widget_margin_landscape_vertical" >
+
+    <RelativeLayout
+        android:id="@+id/widget"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/bg" >
+
+        <TextView
+            android:id="@+id/error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="45dp"
+            android:textSize="13sp" />
+
+        <ImageView
+            android:id="@+id/alert"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/alert"
+            android:orientation="vertical"
+            android:paddingBottom="7dp"
+            android:paddingLeft="7dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_alignParentRight="true" android:gravity="center_vertical" android:layout_centerVertical="true">
+
+            <LinearLayout
+                android:id="@+id/TextWrapper"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:gravity="right|center_vertical"
+                android:orientation="vertical" android:layout_weight="1" android:layout_marginRight="5dp">
+
+                <LinearLayout
+                    android:id="@+id/PowerLine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical" >
+
+                    <ImageView
+                        android:id="@+id/power"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="3dp"
+                        android:contentDescription="@string/power"
+                        android:paddingTop="2dp" />
+
+                    <ImageView
+                        android:id="@+id/points"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/unknown" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/PlaceLine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical" >
+
+                    <ImageView
+                        android:id="@+id/hourzones"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="15dp"
+                        android:contentDescription="@string/per_hour" android:layout_weight="8"/>
+
+                    <ImageView
+                        android:id="@+id/placestar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="2dip"
+                        android:contentDescription="@string/place" android:layout_weight="5"/>
+
+                    <ImageView
+                        android:id="@+id/place"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/unknown" android:layout_weight="1"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/option"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:contentDescription="@string/settings"
+                android:orientation="vertical"
+                android:src="@drawable/settings" android:padding="2dp"/>
+
+            <ImageButton
+                android:id="@+id/refresh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:contentDescription="@string/refresh"
+                android:orientation="vertical"
+                android:src="@drawable/refresh" android:padding="2dp"/>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</FrameLayout>
