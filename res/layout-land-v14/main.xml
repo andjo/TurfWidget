@@ -32,15 +32,20 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:layout_alignParentRight="true" android:gravity="center_vertical" android:layout_centerVertical="true">
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical" >
 
             <LinearLayout
                 android:id="@+id/TextWrapper"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
                 android:gravity="right|center_vertical"
-                android:orientation="vertical" android:layout_weight="1" android:layout_marginRight="5dp">
+                android:orientation="vertical" >
 
                 <LinearLayout
                     android:id="@+id/PowerLine"
@@ -74,20 +79,23 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="15dp"
-                        android:contentDescription="@string/per_hour" android:layout_weight="8"/>
+                        android:layout_weight="8"
+                        android:contentDescription="@string/per_hour" />
 
                     <ImageView
                         android:id="@+id/placestar"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="2dip"
-                        android:contentDescription="@string/place" android:layout_weight="5"/>
+                        android:layout_weight="5"
+                        android:contentDescription="@string/place" />
 
                     <ImageView
                         android:id="@+id/place"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:contentDescription="@string/unknown" android:layout_weight="1"/>
+                        android:layout_weight="1"
+                        android:contentDescription="@string/unknown" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -98,7 +106,8 @@
                 android:background="@null"
                 android:contentDescription="@string/settings"
                 android:orientation="vertical"
-                android:src="@drawable/settings" android:padding="2dp"/>
+                android:padding="2dp"
+                android:src="@drawable/settings" />
 
             <ImageButton
                 android:id="@+id/refresh"
@@ -107,8 +116,22 @@
                 android:background="@null"
                 android:contentDescription="@string/refresh"
                 android:orientation="vertical"
-                android:src="@drawable/refresh" android:padding="2dp"/>
+                android:padding="2dp"
+                android:src="@drawable/refresh" />
 
+            <FrameLayout
+                android:id="@+id/ProgressBarWrapper"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" >
+
+                <ProgressBar
+                    android:id="@+id/ProgressBar"
+                    android:layout_width="29.5dp"
+                    android:layout_height="29.5dp"
+                    android:indeterminate="true"
+                    android:padding="3dp" />
+            </FrameLayout>
         </LinearLayout>
     </RelativeLayout>
 

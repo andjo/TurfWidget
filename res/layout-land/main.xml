@@ -129,6 +129,21 @@
             android:paddingTop="4dp"
             android:src="@drawable/refresh" >
         </ImageButton>
+
+        <FrameLayout
+            android:id="@+id/ProgressBarWrapper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true" >
+
+            <ProgressBar
+                android:id="@+id/ProgressBar"
+                android:layout_width="39.5dp"
+                android:layout_height="39.5dp"
+                android:indeterminate="true"
+                android:padding="9dp" />
+        </FrameLayout>
     </RelativeLayout>
 
 </FrameLayout>

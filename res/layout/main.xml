@@ -2,7 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:padding="@dimen/widget_margin" >
+    android:padding="@dimen/widget_margin">
 
     <RelativeLayout
         android:id="@+id/widget"
@@ -120,6 +120,21 @@
             android:padding="7dp"
             android:src="@drawable/refresh" >
         </ImageButton>
+
+        <FrameLayout
+            android:id="@+id/ProgressBarWrapper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true">
+
+            <ProgressBar
+                android:id="@+id/ProgressBar"
+                android:layout_width="39.5dp"
+                android:layout_height="39.5dp"
+                android:indeterminate="true"
+                android:padding="10dp" />
+        </FrameLayout>
     </RelativeLayout>
 
 </FrameLayout>

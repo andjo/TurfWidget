@@ -14,6 +14,7 @@ import android.os.AsyncTask;
 import android.os.IBinder;
 import android.os.Vibrator;
 import android.util.Log;
+import android.view.View;
 import android.widget.RemoteViews;
 
 import com.turf.graphic.CustomText;
@@ -71,7 +72,11 @@ public class AppService extends Service
 		@Override
 		protected void onPreExecute()
 		{
-			// TODO: Show progress indicator
+			RemoteViews statsView = new RemoteViews(getApplicationContext().getPackageName(),
+			                                        R.layout.main);
+			statsView.setViewVisibility(R.id.refresh, View.GONE);
+			statsView.setViewVisibility(R.id.ProgressBarWrapper, View.VISIBLE);
+			updateWidgets(statsView);
 		}
 
 		@Override
@@ -85,11 +90,13 @@ public class AppService extends Service
 
 		protected void onPostExecute(Object[] o)
 		{
-			// TODO: Kill progress indicator
-
 			// Create RemoteViews
 			RemoteViews statsView = getStatsView((CharStats) o[0],
 			                                     (Boolean) o[1]);
+			statsView.setViewVisibility(R.id.ProgressBarWrapper, View.GONE);
+			statsView.setViewVisibility(R.id.refresh, View.VISIBLE);
+			
+
 
 			// Update all widgets.
 			updateWidgets(statsView);
