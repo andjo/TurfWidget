@@ -1,9 +1,12 @@
 package com.turf.widget.turf;
 
+import android.app.Activity;
+import android.app.ActivityManager;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -68,18 +71,39 @@ public class TurfWidget extends AppWidgetProvider
 			serviceIntent.putExtra("kill", false);
 			context.startService(serviceIntent);
 
-			Intent launchIntent = context.getPackageManager().getLaunchIntentForPackage("se.turfwars.android");
+			startTurf(context);
 
-			if (launchIntent == null) {
-				Toast.makeText(context,
-				               "To use this function.\nPlease install the game Turf",
-				               Toast.LENGTH_LONG).show();
-			} else {
-				context.startActivity(launchIntent);
-			}
 			return;
 		}
 		super.onReceive(context, intent);
+	}
+
+	private void startTurf(Context context)
+	{
+		Intent launchIntent = context.getPackageManager().getLaunchIntentForPackage("se.turfwars.android");
+
+		if (launchIntent == null) {
+			Toast.makeText(context,
+			               "To use this function.\nPlease install the game Turf",
+			               Toast.LENGTH_LONG).show();
+			return;
+		}
+
+		// moveTaskToFron is available from API level 11.
+		if (Build.VERSION.SDK_INT >= 11) {
+			ActivityManager am = (ActivityManager) context.getSystemService(Activity.ACTIVITY_SERVICE);
+			java.util.List<ActivityManager.RunningTaskInfo> list = am.getRunningTasks(17);
+			for (int i = 0; i < list.size(); i++) {
+				ActivityManager.RunningTaskInfo ti = list.get(i);
+				if (ti.topActivity.getPackageName().equals("se.turfwars.android")) {
+					am.moveTaskToFront(ti.id, 0);
+					return;
+				}
+			}
+		}
+
+		// Older version, or Turf is not running.
+		context.startActivity(launchIntent);
 	}
 
 	@Override
