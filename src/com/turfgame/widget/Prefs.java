@@ -1,4 +1,6 @@
-package com.turf.widget.turf;
+package com.turfgame.widget;
+
+import com.turfgame.widget.R;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;

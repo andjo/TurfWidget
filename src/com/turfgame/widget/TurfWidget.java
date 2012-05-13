@@ -1,5 +1,6 @@
-package com.turf.widget.turf;
+package com.turfgame.widget;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.appwidget.AppWidgetManager;
@@ -10,17 +11,17 @@ import android.os.Build;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.turf.alarm.AppService;
-import com.turf.alarm.OnAlarmReceiver;
+import com.turfgame.alarm.AppService;
+import com.turfgame.alarm.OnAlarmReceiver;
 
 public class TurfWidget extends AppWidgetProvider
 {
 
 	public static final boolean DEBUG = false;
 	public static final String DEBUG_STRING = "TurfWidget DEBUG";
-	public static final String PREFS_UPDATE = "com.turf.widget.turf.PREFS_UPDATE";
+	public static final String PREFS_UPDATE = "com.turfgame.widget.PREFS_UPDATE";
 	public static final String WIDGET_UPDATE = "android.appwidget.action.APPWIDGET_UPDATE";
-	public static final String TURF_LAUNCH = "com.turf.widget.turf.TURF_LAUNCH";;
+	public static final String TURF_LAUNCH = "com.turfgame.widget.TURF_LAUNCH";;
 
 	public static String ERROR = null;
 
@@ -78,7 +79,8 @@ public class TurfWidget extends AppWidgetProvider
 		super.onReceive(context, intent);
 	}
 
-	private void startTurf(Context context)
+	@TargetApi(11)
+    private void startTurf(Context context)
 	{
 		Intent launchIntent = context.getPackageManager().getLaunchIntentForPackage("se.turfwars.android");
 

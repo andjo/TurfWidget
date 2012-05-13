@@ -1,4 +1,4 @@
-package com.turf.widget.turf;
+package com.turfgame.widget;
 
 public class CharStats
 {

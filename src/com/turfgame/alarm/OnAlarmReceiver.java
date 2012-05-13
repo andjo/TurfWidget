@@ -1,4 +1,4 @@
-package com.turf.alarm;
+package com.turfgame.alarm;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -7,7 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
-import com.turf.widget.turf.TurfWidget;
+import com.turfgame.widget.TurfWidget;
 
 public class OnAlarmReceiver extends BroadcastReceiver
 {

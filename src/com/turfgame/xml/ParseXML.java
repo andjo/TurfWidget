@@ -1,4 +1,4 @@
-package com.turf.xml;
+package com.turfgame.xml;
 
 //Guide http://www.anddev.org/novice-tutorials-f8/parsing-xml-from-the-net-using-the-saxparser-t353.html
 
@@ -14,8 +14,8 @@ import org.xml.sax.XMLReader;
 
 import android.util.Log;
 
-import com.turf.widget.turf.CharStats;
-import com.turf.widget.turf.TurfWidget;
+import com.turfgame.widget.CharStats;
+import com.turfgame.widget.TurfWidget;
 
 public class ParseXML
 {

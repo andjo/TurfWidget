@@ -1,10 +1,10 @@
-package com.turf.xml;
+package com.turfgame.xml;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import com.turf.widget.turf.CharStats;
+import com.turfgame.widget.CharStats;
 
 public class ParseHandler extends DefaultHandler
 {

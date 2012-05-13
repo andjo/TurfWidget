@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.turf.widget.turf"
-    android:versionCode="14"
-    android:versionName="0.3.5 [AJ-development]" >
+    package="com.turfgame.widget"
+    android:versionCode="15"
+    android:versionName="0.3.6" >
 
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -37,10 +37,10 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name="com.turf.alarm.OnAlarmReceiver" >
+        <receiver android:name="com.turfgame.alarm.OnAlarmReceiver" >
         </receiver>
 
-        <service android:name="com.turf.alarm.AppService" />
+        <service android:name="com.turfgame.alarm.AppService" />
     </application>
 
 </manifest>

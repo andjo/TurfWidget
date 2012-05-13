@@ -1,4 +1,4 @@
-package com.turf.alarm;
+package com.turfgame.alarm;
 
 import java.util.Calendar;
 
@@ -17,12 +17,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.RemoteViews;
 
-import com.turf.graphic.CustomText;
-import com.turf.widget.turf.CharStats;
-import com.turf.widget.turf.Prefs;
-import com.turf.widget.turf.R;
-import com.turf.widget.turf.TurfWidget;
-import com.turf.xml.ParseXML;
+import com.turfgame.graphic.CustomText;
+import com.turfgame.widget.CharStats;
+import com.turfgame.widget.Prefs;
+import com.turfgame.widget.TurfWidget;
+import com.turfgame.widget.R;
+import com.turfgame.xml.ParseXML;
 
 public class AppService extends Service
 {
