@@ -4,6 +4,7 @@
     android:initialLayout="@layout/main"
     android:minHeight="40dip"
     android:minWidth="110dp"
+    android:previewImage="@drawable/preview"
     android:resizeMode="horizontal|vertical" >
 
 </appwidget-provider>

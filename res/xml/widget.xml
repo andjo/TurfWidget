@@ -3,6 +3,7 @@
     android:configure="com.turfgame.widget.Prefs"
     android:initialLayout="@layout/main"
     android:minHeight="70dip"
-    android:minWidth="110dp" >
+    android:minWidth="110dp"
+    android:previewImage="@drawable/preview" >
 
 </appwidget-provider>
