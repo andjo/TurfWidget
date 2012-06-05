@@ -97,7 +97,8 @@ public class TurfWidget extends AppWidgetProvider
 			java.util.List<ActivityManager.RunningTaskInfo> list = am.getRunningTasks(17);
 			for (int i = 0; i < list.size(); i++) {
 				ActivityManager.RunningTaskInfo ti = list.get(i);
-				if (ti.topActivity.getPackageName().equals("se.turfwars.android")) {
+				if (ti.topActivity.getPackageName().equals("se.turfwars.android") &&
+					ti.numRunning > 0) {
 					am.moveTaskToFront(ti.id, 0);
 					return;
 				}
