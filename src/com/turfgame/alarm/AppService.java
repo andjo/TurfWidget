@@ -139,6 +139,7 @@ public class AppService extends Service
 		                                                               update,
 		                                                               0);
 		statsView.setOnClickPendingIntent(R.id.TextWrapper, updatePendingIntent);
+		statsView.setOnClickPendingIntent(R.id.error, updatePendingIntent);
 
 		// Refresh
 		Intent refresh = new Intent(this, TurfWidget.class);
