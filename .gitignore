@@ -17,3 +17,6 @@ local.properties
 
 # EclipseHTMLEditor configuration file
 .amateras
+
+# Eclipse settings
+.settings
