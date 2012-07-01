@@ -66,7 +66,8 @@ public class TurfWidget extends AppWidgetProvider
 		} else if (TURF_LAUNCH.equals(intent.getAction())) {
 
 			AppService.resetAlert(context);
-			// FIXME: Just re-bind eventhandlers after updateAppWidget in resetAlert().
+			// FIXME: Just re-bind eventhandlers after updateAppWidget in
+			// resetAlert().
 			Intent serviceIntent = new Intent(context, AppService.class);
 			serviceIntent.putExtra("vibrate", false);
 			serviceIntent.putExtra("kill", false);
@@ -80,7 +81,7 @@ public class TurfWidget extends AppWidgetProvider
 	}
 
 	@TargetApi(11)
-    private void startTurf(Context context)
+	private void startTurf(Context context)
 	{
 		Intent launchIntent = context.getPackageManager().getLaunchIntentForPackage("se.turfwars.android");
 
@@ -98,7 +99,7 @@ public class TurfWidget extends AppWidgetProvider
 			for (int i = 0; i < list.size(); i++) {
 				ActivityManager.RunningTaskInfo ti = list.get(i);
 				if (ti.topActivity.getPackageName().equals("se.turfwars.android") &&
-					ti.numRunning > 0) {
+				    ti.numRunning > 0) {
 					am.moveTaskToFront(ti.id, 0);
 					return;
 				}
@@ -117,7 +118,7 @@ public class TurfWidget extends AppWidgetProvider
 			Log.v(DEBUG_STRING, "onDeleted");
 		}
 
-		// Brodcasta till onAlarm så att service avslutas!
+		// Brodcasta till onAlarm sï¿½ att service avslutas!
 		Intent closeService = new Intent(context, OnAlarmReceiver.class);
 		closeService.setAction(OnAlarmReceiver.DELETE_WIDGET_SERVICE);
 		context.sendBroadcast(closeService);
