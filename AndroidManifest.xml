@@ -19,6 +19,7 @@
         android:label="@string/widget_name" >
         <receiver
             android:name=".TurfWidget"
+            android:exported="false"
             android:label="@string/widget_name" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -31,6 +32,7 @@
 
         <activity
             android:name=".Prefs"
+            android:exported="false"
             android:label="@string/prefs_name" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
