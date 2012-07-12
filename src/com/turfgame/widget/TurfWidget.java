@@ -83,11 +83,16 @@ public class TurfWidget extends AppWidgetProvider
 	@TargetApi(11)
 	private void startTurf(Context context)
 	{
-		Intent launchIntent = context.getPackageManager().getLaunchIntentForPackage("se.turfwars.android");
+		String turfPackageName = "se.turfwars.android";
+		Intent launchIntent = context.getPackageManager().getLaunchIntentForPackage(turfPackageName);
+		if (launchIntent == null) {
+			turfPackageName = "com.andrimon.turf";
+			launchIntent = context.getPackageManager().getLaunchIntentForPackage(turfPackageName);
+		}
 
 		if (launchIntent == null) {
 			Toast.makeText(context,
-			               "To use this function.\nPlease install the game Turf",
+			               "To use this function.\nPlease install the game Turf " + turfPackageName,
 			               Toast.LENGTH_LONG).show();
 			return;
 		}
@@ -98,7 +103,7 @@ public class TurfWidget extends AppWidgetProvider
 			java.util.List<ActivityManager.RunningTaskInfo> list = am.getRunningTasks(17);
 			for (int i = 0; i < list.size(); i++) {
 				ActivityManager.RunningTaskInfo ti = list.get(i);
-				if (ti.topActivity.getPackageName().equals("se.turfwars.android") &&
+				if (ti.topActivity.getPackageName().equals(turfPackageName) &&
 				    ti.numRunning > 0) {
 					am.moveTaskToFront(ti.id, 0);
 					return;
