@@ -10,6 +10,7 @@ import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
 import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 
 import android.util.Log;
@@ -47,7 +48,20 @@ public class ParseXML
 			ParseHandler parseHandler = new ParseHandler();
 			reader.setContentHandler(parseHandler);
 
-			reader.parse(new InputSource(url.openStream()));
+			InputSource is = new InputSource(url.openStream());
+			try {
+				reader.parse(is);
+			}
+			// Catch invalid character coding.
+			catch (SAXException e) {
+				Log.e(DEBUG_TAG, "SAXException, trying latin-1.", e);
+				is = new InputSource(url.openStream());
+				is.setEncoding("ISO-8859-1");
+				reader.parse(is);
+				if (TurfWidget.DEBUG) {
+					Log.d(DEBUG_TAG, "Success");
+				}
+			}
 
 			CharStats charStats = parseHandler.getCharStats();
 
