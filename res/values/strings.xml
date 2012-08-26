@@ -13,6 +13,9 @@
     <string name="vibrate_title">Vibrate</string>
     <string name="vibrate_summary">Vibrate on alert</string>
     
+    <string name="notify_title">Show notifications</string>
+    <string name="notify_summary">Show notification when a zone is lost</string>
+	
     <string name="unknown"></string>
     <string name="power">Power</string>
     <string name="per_hour">Per hour</string>
@@ -22,4 +25,5 @@
     <string name="settings">Settings</string>
     <string name="refresh">Refresh</string>
     
+    <string name="ticker_text">Zone lost</string>
 </resources>

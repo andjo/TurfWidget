@@ -6,6 +6,11 @@
         android:key="vibrate"
         android:summary="@string/vibrate_summary"
         android:title="@string/vibrate_title" />
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="notify"
+        android:summary="@string/notify_summary"
+        android:title="@string/notify_title" />
 
     <EditTextPreference
         android:dialogTitle="@string/user_email_dialog"

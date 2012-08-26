@@ -76,6 +76,10 @@ public class CharStats
 
 		return false;
 	}
+	
+	public static int getPrevZones() {
+		return prevZones;
+	}
 
 	public static void setPlace(int place)
 	{

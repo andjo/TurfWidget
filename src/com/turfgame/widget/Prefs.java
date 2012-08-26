@@ -19,6 +19,9 @@ public class Prefs extends PreferenceActivity
 	private static final String OPT_VIBRATE = "vibrate";
 	private static final boolean OPT_VIBRATE_DEF = true;
 
+	private static final String OPT_NOTIFY = "notify";
+	private static final boolean OPT_NOTIFY_DEF = true;
+
 	private static final String OPT_USER_EMAIL = "user_email";
 	private static String OPT_USER_EMAIL_DEF = "";
 
@@ -100,6 +103,12 @@ public class Prefs extends PreferenceActivity
 	{
 		return PreferenceManager.getDefaultSharedPreferences(context).getBoolean(OPT_VIBRATE,
 		                                                                         OPT_VIBRATE_DEF);
+	}
+
+	public static boolean getNotify(Context context)
+	{
+		return PreferenceManager.getDefaultSharedPreferences(context).getBoolean(OPT_NOTIFY,
+		                                                                         OPT_NOTIFY_DEF);
 	}
 
 	public static String getUserEmail(Context context)

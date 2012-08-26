@@ -3,6 +3,8 @@ package com.turfgame.alarm;
 import java.util.Calendar;
 
 import android.app.AlarmManager;
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.appwidget.AppWidgetManager;
@@ -90,16 +92,19 @@ public class AppService extends Service
 
 		protected void onPostExecute(Object[] o)
 		{
+			CharStats charStats = (CharStats) o[0];
+			Boolean vibrator = (Boolean) o[1];
+
 			// Create RemoteViews
-			RemoteViews statsView = getStatsView((CharStats) o[0],
-			                                     (Boolean) o[1]);
+			RemoteViews statsView = getStatsView(charStats, vibrator);
 			statsView.setViewVisibility(R.id.ProgressBarWrapper, View.GONE);
 			statsView.setViewVisibility(R.id.refresh, View.VISIBLE);
-			
-
 
 			// Update all widgets.
 			updateWidgets(statsView);
+
+			// Update notification
+			updateNotification(charStats);
 
 			// Schedule next update
 			scheduleUpdate();
@@ -284,6 +289,60 @@ public class AppService extends Service
 
 		return statsView;
 	}
+	
+	@SuppressWarnings("deprecation")
+    private void updateNotification(CharStats currentChar) {
+		if (!Prefs.getNotify(this)) {
+			return;
+		}
+
+		if (CharStats.getPrevZonesAlert()) {
+			// Create notification
+			String ns = Context.NOTIFICATION_SERVICE;
+			NotificationManager mNotificationManager = (NotificationManager) this.getSystemService(ns);
+
+			long when = System.currentTimeMillis();
+
+			CharSequence notificationTitle = this.getString(R.string.widget_name);
+			CharSequence notificationText = this.getString(R.string.ticker_text);
+			int number = CharStats.getPrevZones() - CharStats.getZones();
+
+			// FIXME: Use Notification.Builder if available.
+			Notification notification = new Notification(
+			                                             R.drawable.alert_notification,
+			                                             notificationText, when);
+
+			if (number > 1) {
+				notification.number = number;
+			}
+
+			// Launch Turf on selection.
+			Intent launchIntent = new Intent(this, TurfWidget.class);
+			launchIntent.setAction(TurfWidget.TURF_LAUNCH);
+			PendingIntent contentIntent = PendingIntent.getBroadcast(this,
+			                                                         0,
+			                                                         launchIntent,
+			                                                         0);
+			// Reset alerts on delete notification intent
+			Intent resetAlertIntent = new Intent(this, TurfWidget.class);
+			resetAlertIntent.setAction(TurfWidget.RESET_ALERT);
+			notification.deleteIntent = PendingIntent.getBroadcast(this,
+			                                                       0,
+			                                                       resetAlertIntent,
+			                                                       0);
+
+			// FIXME: deprecated method setLatestEventInfo
+			notification.setLatestEventInfo(this, notificationTitle, notificationText,
+			                                contentIntent);
+
+			mNotificationManager.notify(R.string.ticker_text, notification);
+		} else {
+			// Cancel notification
+			String ns = Context.NOTIFICATION_SERVICE;
+			NotificationManager mNotificationManager = (NotificationManager) this.getSystemService(ns);
+			mNotificationManager.cancel(R.string.ticker_text);
+		}
+	}
 
 	public static void resetAlert(Context context)
 	{
@@ -299,6 +358,11 @@ public class AppService extends Service
 		// FIXME: Need to bind eventhandlers here?
 
 		appWidgetManager.updateAppWidget(appWidgetIds, statsView);
+
+		// Cancel notification
+		String ns = Context.NOTIFICATION_SERVICE;
+		NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(ns);
+		mNotificationManager.cancel(R.string.ticker_text);
 	}
 
 	@Override

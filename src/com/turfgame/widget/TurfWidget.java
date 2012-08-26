@@ -21,7 +21,8 @@ public class TurfWidget extends AppWidgetProvider
 	public static final String DEBUG_STRING = "TurfWidget DEBUG";
 	public static final String PREFS_UPDATE = "com.turfgame.widget.PREFS_UPDATE";
 	public static final String WIDGET_UPDATE = "android.appwidget.action.APPWIDGET_UPDATE";
-	public static final String TURF_LAUNCH = "com.turfgame.widget.TURF_LAUNCH";;
+	public static final String TURF_LAUNCH = "com.turfgame.widget.TURF_LAUNCH";
+	public static final String RESET_ALERT = "com.turfgame.widget.RESET_ALERT";
 
 	public static String ERROR = null;
 
@@ -76,6 +77,15 @@ public class TurfWidget extends AppWidgetProvider
 			startTurf(context);
 
 			return;
+		} else if (RESET_ALERT.equals(intent.getAction())) {
+			
+			AppService.resetAlert(context);
+			// FIXME: Just re-bind eventhandlers after updateAppWidget in
+			// resetAlert().
+			Intent serviceIntent = new Intent(context, AppService.class);
+			serviceIntent.putExtra("vibrate", false);
+			serviceIntent.putExtra("kill", false);
+			context.startService(serviceIntent);
 		}
 		super.onReceive(context, intent);
 	}
