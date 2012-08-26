@@ -33,6 +33,9 @@ public class ParseHandler extends DefaultHandler
 			String attrValueZones = atts.getValue("zones");
 			String attrValueHour = atts.getValue("hour");
 			String attrValuePlace = atts.getValue("place");
+
+//			attrValueZones = (int)(Math.random() * 5) + "";
+			
 			CharStats.setPoints(Integer.parseInt(attrValuePoints));
 			CharStats.setZones(Integer.parseInt(attrValueZones));
 			CharStats.setHour(Integer.parseInt(attrValueHour));
