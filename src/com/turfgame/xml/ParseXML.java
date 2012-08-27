@@ -10,7 +10,6 @@ import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
 import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 
 import android.util.Log;
@@ -49,18 +48,16 @@ public class ParseXML
 			reader.setContentHandler(parseHandler);
 
 			InputSource is = new InputSource(url.openStream());
-			try {
-				reader.parse(is);
-			}
-			// Catch invalid character coding.
-			catch (SAXException e) {
-				Log.e(DEBUG_TAG, "SAXException, trying latin-1.", e);
-				is = new InputSource(url.openStream());
-				is.setEncoding("ISO-8859-1");
-				reader.parse(is);
-				if (TurfWidget.DEBUG) {
-					Log.d(DEBUG_TAG, "Success");
-				}
+			
+			// Hack to workaround faulty encoding from server.
+			// When the server side is fixed to actually deliver utf-8 this will
+			// result in broken characters, but it will at lease decode without
+			// exceptions, and those strings are not yet used anyway.
+			is.setEncoding("ISO-8859-1");
+
+			reader.parse(is);
+			if (TurfWidget.DEBUG) {
+				Log.d(DEBUG_TAG, "Success");
 			}
 
 			CharStats charStats = parseHandler.getCharStats();
