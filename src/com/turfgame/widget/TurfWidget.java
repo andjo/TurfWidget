@@ -102,7 +102,7 @@ public class TurfWidget extends AppWidgetProvider
 
 		if (launchIntent == null) {
 			Toast.makeText(context,
-			               "To use this function.\nPlease install the game Turf " + turfPackageName,
+			               "Please install the game Turf to use this function",
 			               Toast.LENGTH_LONG).show();
 			return;
 		}
