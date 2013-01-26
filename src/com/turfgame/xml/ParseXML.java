@@ -19,7 +19,7 @@ import com.turfgame.widget.TurfWidget;
 
 public class ParseXML
 {
-	private static final String URL_ADRESS = "http://api.turfgame.com/user/";
+	private static final String URL_ADRESS = "http://api.turfgame.com/v1/user/";
 	private static final String DEBUG_TAG = "ParseXML";
 
 	public static CharStats parseXML(String email)
