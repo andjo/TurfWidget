@@ -5,6 +5,7 @@
     android:minHeight="40dip"
     android:minWidth="110dp"
     android:previewImage="@drawable/preview"
-    android:resizeMode="horizontal|vertical" >
+    android:resizeMode="horizontal|vertical"
+    android:widgetCategory="keyguard|home_screen" >
 
 </appwidget-provider>
