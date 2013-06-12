@@ -2,6 +2,7 @@ package com.turfgame.xml;
 
 //Guide http://www.anddev.org/novice-tutorials-f8/parsing-xml-from-the-net-using-the-saxparser-t353.html
 
+import java.io.FileNotFoundException;
 import java.net.ConnectException;
 import java.net.URL;
 import java.net.UnknownHostException;
@@ -73,6 +74,9 @@ public class ParseXML
 			TurfWidget.setError("server");
 //			Log.e(DEBUG_TAG, "XMLQueryErrror?", e);
 		}
+        catch (FileNotFoundException e) {
+            TurfWidget.setError("file");
+        }
 		catch (Exception e) {
 			Log.e(DEBUG_TAG, "XMLQueryErrror?", e);
 		}

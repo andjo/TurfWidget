@@ -264,18 +264,25 @@ public class AppService extends Service
 			if (TurfWidget.DEBUG) {
 				Log.e("Error:", "Internet");
 			}
-			statsView.setTextViewText(R.id.error, "No Connection to internet");
+			statsView.setTextViewText(R.id.error, "No connection");
 
 		} else if (TurfWidget.getError().equals("server")) {
 			if (TurfWidget.DEBUG) {
 				Log.e("Error:", "Server");
 			}
 			statsView.setTextViewText(R.id.error,
-			                          "Something wrong with server?");
+			                          "Server not responding");
+
+		} else if (TurfWidget.getError().equals("file")) {
+			if (TurfWidget.DEBUG) {
+				Log.e("Error:", "File not found");
+			}
+			statsView.setTextViewText(R.id.error,
+					"Server provided no data");
 
 		} else {
 			if (TurfWidget.DEBUG) {
-				Log.e("Error:", "Unkown");
+				Log.e("Error:", "Unknown");
 			}
 			statsView.setTextViewText(R.id.error, TurfWidget.getError());
 		}
