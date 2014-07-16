@@ -26,5 +26,14 @@
         android:key="update_freq"
         android:summary="@string/update_freq_dialog"
         android:title="@string/update_freq_title" />
+    
+    <ListPreference
+        android:defaultValue="widget"
+        android:dialogTitle="@string/layout_dialog"
+        android:entries="@array/layout_name"
+        android:entryValues="@array/layout_id"
+        android:key="layout"
+        android:summary="@string/layout_dialog"
+        android:title="@string/layout_title" />
 
 </PreferenceScreen>

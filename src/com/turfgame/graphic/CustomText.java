@@ -15,6 +15,9 @@ public class CustomText
 	private float scale;
 	private int fontSizeSmall = 16;
 	private int fontSizeBig = 20;
+	private int lightColor = Color.argb(240, 255, 255, 255);
+	private int grayColor = Color.argb(240, 200, 200, 200);
+	private int yellowColor = Color.argb(255, 255, 222, 0);
 
 	public CustomText(Context context) {
 		mContext = context;
@@ -30,10 +33,9 @@ public class CustomText
 		paint.setSubpixelText(true);
 		paint.setTypeface(tf);
 //		paint.setStyle(Paint.Style.FILL);
-		paint.setColor(Color.argb(255, 255, 222, 0));
+		paint.setColor(grayColor);
 		paint.setTextSize(fontSize * scale);
 		paint.setTextAlign(Align.LEFT);
-
 		Paint.FontMetricsInt metrics = paint.getFontMetricsInt();
 		int height = metrics.bottom - metrics.top;
 
@@ -46,14 +48,48 @@ public class CustomText
 //		myBitmap.eraseColor(Color.WHITE); // Debug
 		Canvas myCanvas = new Canvas(myBitmap);
 		myCanvas.drawText(text, -bounds.left, height - metrics.bottom, paint);
+		
 		return myBitmap;
 	}
 
-	private Bitmap createCustomTextHourZones(String text, int fontSize)
+	private Bitmap createCustomTextWithSuffix(String text, String suffix, int fontSize)
 	{
-		String prefix = "+";
-		String sufix = "Z";
-		String fullText = prefix + text + sufix;
+		Typeface tf = Typeface.createFromAsset(mContext.getAssets(),
+		                                       "fonts/Insanehours2.ttf");
+		Paint paint = new Paint();
+		paint.setAntiAlias(true);
+		paint.setSubpixelText(true);
+		paint.setTypeface(tf);
+//		paint.setStyle(Paint.Style.FILL);
+		paint.setColor(yellowColor);
+		paint.setTextSize(fontSize * scale);
+		paint.setTextAlign(Align.LEFT);
+		String fulltext = text+suffix;
+		Paint.FontMetricsInt metrics = paint.getFontMetricsInt();
+		int height = metrics.bottom - metrics.top;
+
+		Rect bounds = new Rect();
+		paint.getTextBounds(fulltext, 0, fulltext.length(), bounds);
+		int width = bounds.right - bounds.left;
+
+		Bitmap myBitmap = Bitmap.createBitmap(width, height,
+		                                      Bitmap.Config.ARGB_8888);
+//		myBitmap.eraseColor(Color.WHITE); // Debug
+		Canvas myCanvas = new Canvas(myBitmap);
+		myCanvas.drawText(text, -bounds.left, height - metrics.bottom, paint);
+		
+		// P
+		int posY = height - metrics.bottom;
+		paint.setColor(lightColor);
+		float curWidth = paint.measureText(text);
+		paint.setTextSize((fontSize-2) * scale);
+		myCanvas.drawText(suffix, -bounds.left + curWidth, posY, paint);
+		return myBitmap;
+	}
+
+	private Bitmap createCustomTextWithPrefix(String text, String prefix, int fontSize)
+	{
+		String fullText = prefix + text;
 		Typeface tf = Typeface.createFromAsset(mContext.getAssets(),
 		                                       "fonts/Insanehours2.ttf");
 		Paint paint = new Paint();
@@ -78,30 +114,35 @@ public class CustomText
 
 		int posY = height - metrics.bottom;
 		// Plus
-		paint.setColor(Color.argb(204, 255, 255, 255));
+		paint.setColor(lightColor);
+		paint.setTextSize((fontSize-2) * scale);
 		myCanvas.drawText(prefix, -bounds.left, posY, paint);
 		float curWidth = paint.measureText(prefix);
 		// Text
-		paint.setColor(Color.argb(255, 255, 222, 0));
+		paint.setColor(yellowColor);
+		paint.setTextSize(fontSize * scale);
 		myCanvas.drawText(text, -bounds.left + curWidth, posY, paint);
 		curWidth = paint.measureText(prefix + text);
-		// Z
-		paint.setColor(Color.argb(204, 255, 255, 255));
-		myCanvas.drawText(sufix, -bounds.left + curWidth, posY, paint);
 
 		return myBitmap;
 	}
-
+	
 	public Bitmap createCustomPoints(int value)
 	{
 		String text = Integer.toString(value);
-		return createCustomText(text, fontSizeBig);
+		return createCustomTextWithSuffix(text, "p", fontSizeBig);
 	}
 
-	public Bitmap createCustomHourZones(int hour, int zones)
+	public Bitmap createCustomHour(int hour)
 	{
-		String text = Integer.toString(hour) + " " + Integer.toString(zones);
-		return createCustomTextHourZones(text, fontSizeSmall);
+		String text = Integer.toString(hour);
+		return createCustomTextWithPrefix(text, "+", fontSizeSmall);
+	}
+	
+	public Bitmap createCustomZones(int zones)
+	{
+		String text = Integer.toString(zones);
+		return createCustomTextWithSuffix(text, "z", fontSizeSmall);
 	}
 
 	public Bitmap createCustomPlace(int value)

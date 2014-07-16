@@ -98,6 +98,10 @@ public class TurfWidget extends AppWidgetProvider
 		if (launchIntent == null) {
 			turfPackageName = "com.andrimon.turf";
 			launchIntent = context.getPackageManager().getLaunchIntentForPackage(turfPackageName);
+		}	
+		if (launchIntent == null) {
+			turfPackageName = "com.andrimon.turf.android";
+			launchIntent = context.getPackageManager().getLaunchIntentForPackage(turfPackageName);
 		}
 
 		if (launchIntent == null) {

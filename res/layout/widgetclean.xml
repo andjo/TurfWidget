@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="@dimen/widget_margin" >
+
+    <RelativeLayout
+        android:id="@+id/widget"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <TextView
+            android:id="@+id/error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="40dp"
+            android:text=""
+            android:textSize="13sp" >
+        </TextView>
+
+        <LinearLayout
+            android:id="@+id/TextWrapper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="40dp"
+            android:gravity="right|center_vertical"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/points"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:contentDescription="@string/unknown" />
+
+            
+            <LinearLayout
+                android:id="@+id/hourzonesLine"
+              android:orientation="horizontal"
+              android:gravity="right|center_vertical"
+              android:layout_width="wrap_content"
+              android:layout_height="fill_parent"
+              >
+            <ImageView
+                android:id="@+id/hour"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/per_hour" />
+            <ImageView
+                android:paddingLeft="20dp"
+                android:id="@+id/zones"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/zones"
+                />
+			</LinearLayout>
+			
+            <LinearLayout
+                android:id="@+id/PlaceLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical" >
+
+                <ImageView
+                    android:id="@+id/placestar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="2dip"
+                    android:contentDescription="@string/place" />
+
+                <ImageView
+                    android:id="@+id/place"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/unknown" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/refresh"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:alpha="0.5"
+            android:background="@null"
+            android:contentDescription="@string/refresh"
+            android:orientation="vertical"
+            android:padding="7dp"
+            android:src="@drawable/refresh" >
+
+        </ImageButton>
+
+        <FrameLayout
+            android:id="@+id/ProgressBarWrapper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:visibility="gone" >
+
+            <ProgressBar
+                android:id="@+id/ProgressBar"
+                android:layout_width="39.5dp"
+                android:layout_height="39.5dp"
+                android:indeterminate="true"
+                android:padding="10dp" />
+        </FrameLayout>
+    </RelativeLayout>
+
+</FrameLayout>

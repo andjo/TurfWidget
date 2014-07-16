@@ -17,5 +17,14 @@
         <item>14400000</item>
         <item>-1</item>
     </string-array>
+    
+    <string-array name="layout_name">
+        <item>Standard</item>
+        <item>Clean</item>
+    </string-array>
+    <string-array name="layout_id">
+        <item>widget</item>
+        <item>widgetclean</item>
+    </string-array>
 
 </resources>
