@@ -15,10 +15,14 @@
     
     <string name="notify_title">Show notifications</string>
     <string name="notify_summary">Show notification when a zone is lost</string>
-	
+
+    <string name="layout_title">Layout</string>
+    <string name="layout_dialog">Choose widget layout</string>
+
     <string name="unknown"></string>
     <string name="power">Power</string>
     <string name="per_hour">Per hour</string>
+    <string name="zones">Zones</string>
     <string name="place">Place</string>
     <string name="alert">Alert</string>
     

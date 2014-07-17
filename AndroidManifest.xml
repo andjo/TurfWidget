@@ -14,6 +14,7 @@
         android:allowBackup="true"
         android:icon="@drawable/app_icon"
         android:label="@string/widget_name" >
+        
         <receiver
             android:name=".TurfWidget"
             android:exported="false"
@@ -24,18 +25,24 @@
 
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/widget" />
+                android:resource="@xml/turfwidget" />
         </receiver>
 
         <activity
             android:name=".Prefs"
             android:exported="true"
-            android:label="@string/prefs_name" >
+            android:label="@string/prefs_name"
+             android:theme="@android:style/Theme.Black.NoTitleBar" android:screenOrientation="portrait"
+             >
             <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
             </intent-filter>
         </activity>
 
+        
         <receiver android:name="com.turfgame.alarm.OnAlarmReceiver" >
         </receiver>
 
