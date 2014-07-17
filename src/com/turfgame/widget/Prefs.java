@@ -117,7 +117,7 @@ public class Prefs extends PreferenceActivity
 	public static String getLayout(Context context)
 	{
 		return PreferenceManager.getDefaultSharedPreferences(context).getString(OPT_LAYOUT,
-		                                                                         OPT_LAYOUT_DEF);
+		                                                                        OPT_LAYOUT_DEF);
 	}
 
 	public static String getUserEmail(Context context)

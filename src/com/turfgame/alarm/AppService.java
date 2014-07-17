@@ -76,7 +76,6 @@ public class AppService extends Service
 		{
 			RemoteViews statsView = new RemoteViews(getApplicationContext().getPackageName(), getApplicationContext().getResources().getIdentifier(Prefs.getLayout(getApplicationContext()), "layout", getApplicationContext().getPackageName()));
 			statsView.setViewVisibility(R.id.refresh, View.GONE);
-			
 			statsView.setViewVisibility(R.id.ProgressBarWrapper, View.VISIBLE);
 			updateWidgets(statsView);
 		}
@@ -99,7 +98,7 @@ public class AppService extends Service
 			RemoteViews statsView = getStatsView(charStats, vibrator);
 			statsView.setViewVisibility(R.id.ProgressBarWrapper, View.GONE);
 			statsView.setViewVisibility(R.id.refresh, View.VISIBLE);
-			
+
 			// Update all widgets.
 			updateWidgets(statsView);
 
@@ -196,14 +195,10 @@ public class AppService extends Service
 	                                       CharStats currentChar,
 	                                       Boolean vibrator)
 	{
-		
-		
 
 		if (TurfWidget.DEBUG) {
 			Log.v("Error", "Is: " + TurfWidget.getError());
 		}
-
-		
 
 		RemoteViews statsView = new RemoteViews(context.getPackageName(), context.getResources().getIdentifier(Prefs.getLayout(context), "layout", context.getPackageName()));
 
@@ -222,7 +217,7 @@ public class AppService extends Service
 			statsView.setImageViewBitmap(R.id.hour,
 			                             customText.createCustomHour(CharStats.getHour()));
 			statsView.setImageViewBitmap(R.id.zones,
-                    customText.createCustomZones(CharStats.getZones()));
+                                         customText.createCustomZones(CharStats.getZones()));
 			statsView.setImageViewResource(R.id.placestar, R.drawable.star);
 			statsView.setImageViewBitmap(R.id.place,
 			                             customText.createCustomPlace(CharStats.getPlace()));
