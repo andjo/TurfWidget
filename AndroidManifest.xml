@@ -31,9 +31,7 @@
         <activity
             android:name=".Prefs"
             android:exported="true"
-            android:label="@string/prefs_name"
-             android:theme="@android:style/Theme.Black.NoTitleBar" android:screenOrientation="portrait"
-             >
+            android:label="@string/prefs_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
