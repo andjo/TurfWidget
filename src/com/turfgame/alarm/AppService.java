@@ -20,11 +20,11 @@ import android.view.View;
 import android.widget.RemoteViews;
 
 import com.turfgame.graphic.CustomText;
+import com.turfgame.json.ParseJSON;
 import com.turfgame.widget.CharStats;
 import com.turfgame.widget.Prefs;
 import com.turfgame.widget.TurfWidget;
 import com.turfgame.widget.R;
-import com.turfgame.xml.ParseXML;
 
 public class AppService extends Service
 {
@@ -74,9 +74,9 @@ public class AppService extends Service
 		@Override
 		protected void onPreExecute()
 		{
-			RemoteViews statsView = new RemoteViews(getApplicationContext().getPackageName(),
-			                                        R.layout.main);
+			RemoteViews statsView = new RemoteViews(getApplicationContext().getPackageName(), getApplicationContext().getResources().getIdentifier(Prefs.getLayout(getApplicationContext()), "layout", getApplicationContext().getPackageName()));
 			statsView.setViewVisibility(R.id.refresh, View.GONE);
+			
 			statsView.setViewVisibility(R.id.ProgressBarWrapper, View.VISIBLE);
 			updateWidgets(statsView);
 		}
@@ -99,7 +99,7 @@ public class AppService extends Service
 			RemoteViews statsView = getStatsView(charStats, vibrator);
 			statsView.setViewVisibility(R.id.ProgressBarWrapper, View.GONE);
 			statsView.setViewVisibility(R.id.refresh, View.VISIBLE);
-
+			
 			// Update all widgets.
 			updateWidgets(statsView);
 
@@ -114,7 +114,7 @@ public class AppService extends Service
 	private CharStats getCurrentChar()
 	{
 		CharStats currentChar = new CharStats(); // FIXME: why new?
-		currentChar = ParseXML.parseXML(Prefs.getUserEmail(this));
+		currentChar = ParseJSON.parseJSON(Prefs.getUserEmail(this));
 		return currentChar;
 	}
 
@@ -196,13 +196,16 @@ public class AppService extends Service
 	                                       CharStats currentChar,
 	                                       Boolean vibrator)
 	{
+		
+		
 
 		if (TurfWidget.DEBUG) {
 			Log.v("Error", "Is: " + TurfWidget.getError());
 		}
 
-		RemoteViews statsView = new RemoteViews(context.getPackageName(),
-		                                        R.layout.main);
+		
+
+		RemoteViews statsView = new RemoteViews(context.getPackageName(), context.getResources().getIdentifier(Prefs.getLayout(context), "layout", context.getPackageName()));
 
 		if (TurfWidget.DEBUG) {
 			int freq = Integer.parseInt(Prefs.getUpdateFreq(context));
@@ -211,13 +214,15 @@ public class AppService extends Service
 
 		CustomText customText = new CustomText(context);
 		if (CharStats.isAccount()) {
+			
 			statsView.setTextViewText(R.id.error, "");
-			statsView.setImageViewResource(R.id.power, R.drawable.power);
+			
 			statsView.setImageViewBitmap(R.id.points,
 			                             customText.createCustomPoints(CharStats.getPoints()));
-			statsView.setImageViewBitmap(R.id.hourzones,
-			                             customText.createCustomHourZones(CharStats.getHour(),
-			                                                              CharStats.getZones()));
+			statsView.setImageViewBitmap(R.id.hour,
+			                             customText.createCustomHour(CharStats.getHour()));
+			statsView.setImageViewBitmap(R.id.zones,
+                    customText.createCustomZones(CharStats.getZones()));
 			statsView.setImageViewResource(R.id.placestar, R.drawable.star);
 			statsView.setImageViewBitmap(R.id.place,
 			                             customText.createCustomPlace(CharStats.getPlace()));
@@ -236,16 +241,15 @@ public class AppService extends Service
 
 				}
 
-				statsView.setImageViewResource(R.id.alert, R.drawable.alert);
+				statsView.setImageViewResource(R.id.refresh, R.drawable.alert);
 				CharStats.setAlert(true);
 			} else {
-				statsView.setImageViewResource(R.id.alert, R.drawable.empty);
+				statsView.setImageViewResource(R.id.refresh, R.drawable.refresh);//R.drawable.empty);
 				CharStats.setAlert(false);
 			}
 		} else {
 			statsView.setTextViewText(R.id.error, "No Account\nChange settings");
 			int emptyImage = R.drawable.empty;
-			statsView.setImageViewResource(R.id.power, emptyImage);
 			statsView.setImageViewResource(R.id.points, emptyImage);
 			statsView.setImageViewResource(R.id.hourzones, emptyImage);
 			statsView.setImageViewResource(R.id.placestar, emptyImage);
@@ -257,14 +261,14 @@ public class AppService extends Service
 
 	private static RemoteViews updateViewErrors(Context context)
 	{
-		RemoteViews statsView = new RemoteViews(context.getPackageName(),
-		                                        R.layout.main);
+		RemoteViews statsView = new RemoteViews(context.getPackageName(), context.getResources().getIdentifier(Prefs.getLayout(context), "layout", context.getPackageName()));
+
 
 		if (TurfWidget.getError().equals("internet")) {
 			if (TurfWidget.DEBUG) {
 				Log.e("Error:", "Internet");
 			}
-			statsView.setTextViewText(R.id.error, "No connection");
+			statsView.setTextViewText(R.id.error, "Connection error");
 
 		} else if (TurfWidget.getError().equals("server")) {
 			if (TurfWidget.DEBUG) {
@@ -273,7 +277,16 @@ public class AppService extends Service
 			statsView.setTextViewText(R.id.error,
 			                          "Server not responding");
 
-		} else if (TurfWidget.getError().equals("file")) {
+		}
+		else if (TurfWidget.getError().equals("json")) {
+			if (TurfWidget.DEBUG) {
+				Log.e("Error:", "JSON");
+			}
+			statsView.setTextViewText(R.id.error,
+			                          "Server Error");
+
+		}
+		else if (TurfWidget.getError().equals("file")) {
 			if (TurfWidget.DEBUG) {
 				Log.e("Error:", "File not found");
 			}
@@ -288,9 +301,10 @@ public class AppService extends Service
 		}
 
 		int emptyImage = R.drawable.empty;
-		statsView.setImageViewResource(R.id.power, emptyImage);
+		
 		statsView.setImageViewResource(R.id.points, emptyImage);
-		statsView.setImageViewResource(R.id.hourzones, emptyImage);
+		statsView.setImageViewResource(R.id.hour, emptyImage);
+		statsView.setImageViewResource(R.id.zones, emptyImage);
 		statsView.setImageViewResource(R.id.placestar, emptyImage);
 		statsView.setImageViewResource(R.id.place, emptyImage);
 
@@ -354,8 +368,8 @@ public class AppService extends Service
 	public static void resetAlert(Context context)
 	{
 		CharStats.setAlert(false);
-		RemoteViews statsView = new RemoteViews(context.getPackageName(),
-		                                        R.layout.main);
+		RemoteViews statsView = new RemoteViews(context.getPackageName(), context.getResources().getIdentifier(Prefs.getLayout(context), "layout", context.getPackageName()));
+
 
 		statsView.setImageViewResource(R.id.alert, R.drawable.empty);
 		AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
