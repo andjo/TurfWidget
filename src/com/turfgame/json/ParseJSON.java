@@ -23,7 +23,7 @@ import com.turfgame.widget.CharStats;
 import com.turfgame.widget.TurfWidget;
 
 public class ParseJSON {
-	private static final String URL_ADRESS = "http://api.turfgame.com/v4/users";
+	private static final String URL_ADDRESS = "http://api.turfgame.com/v4/users";
 	private static final String DEBUG_TAG = "ParseJSON";
 
 	public static CharStats parseJSON(String email) {
@@ -41,7 +41,7 @@ public class ParseJSON {
 
 		StringBuilder stringBuilder = new StringBuilder();
 		HttpClient httpClient = new DefaultHttpClient();
-		HttpPost httpPost = new HttpPost(URL_ADRESS);
+		HttpPost httpPost = new HttpPost(URL_ADDRESS);
 		JSONObject jsonPostObject = new JSONObject();
 
 		try {

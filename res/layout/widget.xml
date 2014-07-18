@@ -42,7 +42,7 @@
 
 
             <LinearLayout
-                android:id="@+id/hourzonesLine"
+                android:id="@+id/hourZonesLine"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:gravity="right|center_vertical"
@@ -71,7 +71,7 @@
                 android:gravity="center_vertical">
 
                 <ImageView
-                    android:id="@+id/placestar"
+                    android:id="@+id/placeStar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="2dip"

@@ -14,7 +14,7 @@ public class OnAlarmReceiver extends BroadcastReceiver
 	public static final String UPDATE_WIDGET_SERVICE = "service.APPWIDGET_UPDATE";
 	public static final String DELETE_WIDGET_SERVICE = "service.APPWIDGET_DELETE";
 	public static AlarmManager alarmManager;
-	public static PendingIntent alarmPedningIntent;
+	public static PendingIntent alarmPendingIntent;
 	private static Intent serviceIntent;
 
 	@Override
@@ -33,8 +33,8 @@ public class OnAlarmReceiver extends BroadcastReceiver
 				if (TurfWidget.DEBUG) {
 					Log.e("Stop:", "Alarm");
 				}
-				alarmPedningIntent.cancel();
-				alarmManager.cancel(alarmPedningIntent);
+				alarmPendingIntent.cancel();
+				alarmManager.cancel(alarmPendingIntent);
 				serviceIntent = new Intent(context, AppService.class);
 				serviceIntent.putExtra("kill", true);
 				serviceIntent.putExtra("vibrate", false);

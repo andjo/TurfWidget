@@ -175,13 +175,13 @@ public class AppService extends Service
 			OnAlarmReceiver.alarmManager = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
 			Intent alarmIntent = new Intent(this, OnAlarmReceiver.class);
 			alarmIntent.setAction(UPDATE_WIDGET_SERVICE);
-			OnAlarmReceiver.alarmPedningIntent = PendingIntent.getBroadcast(this,
+			OnAlarmReceiver.alarmPendingIntent = PendingIntent.getBroadcast(this,
 			                                                                0,
 			                                                                alarmIntent,
 			                                                                0);
 			OnAlarmReceiver.alarmManager.set(AlarmManager.RTC,
 			                                 cal.getTimeInMillis() + freq,
-			                                 OnAlarmReceiver.alarmPedningIntent);
+			                                 OnAlarmReceiver.alarmPendingIntent);
 		} else {
 			if (TurfWidget.DEBUG) {
 				Log.d(TurfWidget.DEBUG_STRING, "Update disabled");
@@ -216,7 +216,7 @@ public class AppService extends Service
 			                             customText.createCustomHour(CharStats.getHour()));
 			statsView.setImageViewBitmap(R.id.zones,
                                          customText.createCustomZones(CharStats.getZones()));
-			statsView.setImageViewResource(R.id.placestar, R.drawable.star);
+			statsView.setImageViewResource(R.id.placeStar, R.drawable.star);
 			statsView.setImageViewBitmap(R.id.place,
 			                             customText.createCustomPlace(CharStats.getPlace()));
 
@@ -246,7 +246,7 @@ public class AppService extends Service
 			statsView.setImageViewResource(R.id.points, emptyImage);
             statsView.setImageViewResource(R.id.hour, emptyImage);
             statsView.setImageViewResource(R.id.zones, emptyImage);
-			statsView.setImageViewResource(R.id.placestar, emptyImage);
+			statsView.setImageViewResource(R.id.placeStar, emptyImage);
 			statsView.setImageViewResource(R.id.place, emptyImage);
 		}
 
@@ -299,7 +299,7 @@ public class AppService extends Service
 		statsView.setImageViewResource(R.id.points, emptyImage);
 		statsView.setImageViewResource(R.id.hour, emptyImage);
 		statsView.setImageViewResource(R.id.zones, emptyImage);
-		statsView.setImageViewResource(R.id.placestar, emptyImage);
+		statsView.setImageViewResource(R.id.placeStar, emptyImage);
 		statsView.setImageViewResource(R.id.place, emptyImage);
 
 		return statsView;
@@ -370,7 +370,7 @@ public class AppService extends Service
 		ComponentName provider = new ComponentName(context, TurfWidget.class);
 		int[] appWidgetIds = appWidgetManager.getAppWidgetIds(provider);
 
-		// FIXME: Need to bind eventhandlers here?
+		// FIXME: Need to bind event handlers here?
 
 		appWidgetManager.updateAppWidget(appWidgetIds, statsView);
 
