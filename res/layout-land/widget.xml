@@ -35,34 +35,35 @@
             android:gravity="right|center_vertical"
             android:orientation="vertical" >
 
-            <LinearLayout
-                android:id="@+id/PowerLine"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_vertical" >
-
-                <ImageView
-                    android:id="@+id/power"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="3dp"
-                    android:contentDescription="@string/power"
-                    android:paddingTop="2dp" />
-
-                <ImageView
-                    android:id="@+id/points"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@string/unknown" />
-            </LinearLayout>
-
             <ImageView
-                android:id="@+id/hourzones"
+                android:id="@+id/points"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:contentDescription="@string/per_hour" />
+                android:contentDescription="@string/unknown" />
+
+            <LinearLayout
+                android:id="@+id/hourzonesLine"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="right|center_vertical"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/hour"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/per_hour" />
+
+                <ImageView
+                    android:id="@+id/zones"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/zones"
+                    android:paddingLeft="20dp" />
+
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/PlaceLine"
@@ -85,18 +86,6 @@
                     android:contentDescription="@string/unknown" />
             </LinearLayout>
         </LinearLayout>
-
-        <ImageView
-            android:id="@+id/alert"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:contentDescription="@string/alert"
-            android:orientation="vertical"
-            android:paddingBottom="7dp"
-            android:paddingLeft="7dp" >
-        </ImageView>
 
         <ImageButton
             android:id="@+id/option"

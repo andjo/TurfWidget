@@ -239,14 +239,15 @@ public class AppService extends Service
 				statsView.setImageViewResource(R.id.refresh, R.drawable.alert);
 				CharStats.setAlert(true);
 			} else {
-				statsView.setImageViewResource(R.id.refresh, R.drawable.refresh);//R.drawable.empty);
+				statsView.setImageViewResource(R.id.refresh, R.drawable.refresh);
 				CharStats.setAlert(false);
 			}
 		} else {
 			statsView.setTextViewText(R.id.error, "No Account\nChange settings");
 			int emptyImage = R.drawable.empty;
 			statsView.setImageViewResource(R.id.points, emptyImage);
-			statsView.setImageViewResource(R.id.hourzones, emptyImage);
+            statsView.setImageViewResource(R.id.hour, emptyImage);
+            statsView.setImageViewResource(R.id.zones, emptyImage);
 			statsView.setImageViewResource(R.id.placestar, emptyImage);
 			statsView.setImageViewResource(R.id.place, emptyImage);
 		}
@@ -366,7 +367,7 @@ public class AppService extends Service
 		RemoteViews statsView = new RemoteViews(context.getPackageName(), context.getResources().getIdentifier(Prefs.getLayout(context), "layout", context.getPackageName()));
 
 
-		statsView.setImageViewResource(R.id.alert, R.drawable.empty);
+        statsView.setImageViewResource(R.id.refresh, R.drawable.refresh);
 		AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
 		ComponentName provider = new ComponentName(context, TurfWidget.class);
 		int[] appWidgetIds = appWidgetManager.getAppWidgetIds(provider);

@@ -20,12 +20,10 @@
     <string name="layout_dialog">Choose widget layout</string>
 
     <string name="unknown"></string>
-    <string name="power">Power</string>
     <string name="per_hour">Per hour</string>
     <string name="zones">Zones</string>
     <string name="place">Place</string>
-    <string name="alert">Alert</string>
-    
+
     <string name="settings">Settings</string>
     <string name="refresh">Refresh</string>
     
