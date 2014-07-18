@@ -86,48 +86,45 @@
         </LinearLayout>
 
 
-     
-
-            <ImageButton
-                android:id="@+id/option"
-                android:layout_alignParentRight="true"
+        <ImageButton
+            android:id="@+id/option"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:contentDescription="@string/settings"
-                android:padding="6dp"
-                android:src="@drawable/settings">
-            </ImageButton>
+            android:background="@null"
+            android:contentDescription="@string/settings"
+            android:padding="6dp"
+            android:src="@drawable/settings">
+        </ImageButton>
 
-            <ImageButton
-                android:id="@+id/refresh"
-                android:layout_alignParentRight="true"
+        <ImageButton
+            android:id="@+id/refresh"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
             android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:background="@null"
+            android:contentDescription="@string/refresh"
+            android:padding="6dp"
+            android:src="@drawable/refresh">
+        </ImageButton>
+
+        <FrameLayout
+            android:id="@+id/ProgressBarWrapper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:visibility="gone">
+
+            <ProgressBar
+                android:id="@+id/ProgressBar"
                 android:layout_width="38dp"
-                    android:layout_height="38dp"
-                android:background="@null"
-                android:contentDescription="@string/refresh"
-                android:padding="6dp"
-                android:src="@drawable/refresh">
-            </ImageButton>
-
-            <FrameLayout
-                android:id="@+id/ProgressBarWrapper"
-                android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:visibility="gone">
-
-                <ProgressBar
-                    android:id="@+id/ProgressBar"
-                    android:layout_width="38dp"
-                    android:layout_height="38dp"
-                    android:padding="6dp"
-                    android:indeterminate="true"
-                     />
-            </FrameLayout>
+                android:layout_height="38dp"
+                android:indeterminate="true"
+                android:padding="6dp" />
+        </FrameLayout>
 
     </RelativeLayout>
 
