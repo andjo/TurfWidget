@@ -135,9 +135,8 @@ public class Prefs extends PreferenceActivity
 
 	public static String getUpdateFreq(Context context)
 	{
-		String Freq = PreferenceManager.getDefaultSharedPreferences(context).getString(OPT_UPDATE_FREQ,
-		                                                                               OPT_UPDATE_FREQ_DEF);
-		return Freq;
-	}
+        return PreferenceManager.getDefaultSharedPreferences(context).getString(OPT_UPDATE_FREQ,
+                                                                                OPT_UPDATE_FREQ_DEF);
+    }
 
 }

@@ -122,7 +122,6 @@ public class CustomText
 		paint.setColor(yellowColor);
 		paint.setTextSize(fontSize * scale);
 		myCanvas.drawText(text, -bounds.left + curWidth, posY, paint);
-		curWidth = paint.measureText(prefix + text);
 
 		return myBitmap;
 	}

@@ -112,9 +112,7 @@ public class AppService extends Service
 
 	private CharStats getCurrentChar()
 	{
-		CharStats currentChar = new CharStats(); // FIXME: why new?
-		currentChar = ParseJSON.parseJSON(Prefs.getUserEmail(this));
-		return currentChar;
+        return ParseJSON.parseJSON(Prefs.getUserEmail(this));
 	}
 
 	private RemoteViews getStatsView(CharStats currentChar, Boolean vibrator)

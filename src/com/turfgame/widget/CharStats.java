@@ -70,7 +70,8 @@ public class CharStats
 			return false;
 		}
 
-		if (prevZones > getZones()) {
+        //noinspection RedundantIfStatement
+        if (prevZones > getZones()) {
 			return true;
 		}
 

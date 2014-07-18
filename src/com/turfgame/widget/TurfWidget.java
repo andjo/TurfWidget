@@ -111,18 +111,17 @@ public class TurfWidget extends AppWidgetProvider
 			return;
 		}
 
-		// moveTaskToFron is available from API level 11.
+		// moveTaskToFront is available from API level 11.
 		if (Build.VERSION.SDK_INT >= 11) {
 			ActivityManager am = (ActivityManager) context.getSystemService(Activity.ACTIVITY_SERVICE);
 			java.util.List<ActivityManager.RunningTaskInfo> list = am.getRunningTasks(17);
-			for (int i = 0; i < list.size(); i++) {
-				ActivityManager.RunningTaskInfo ti = list.get(i);
-				if (ti.topActivity.getPackageName().equals(turfPackageName) &&
-				    ti.numRunning > 0) {
-					am.moveTaskToFront(ti.id, 0);
-					return;
-				}
-			}
+            for (ActivityManager.RunningTaskInfo ti : list) {
+                if (ti.topActivity.getPackageName().equals(turfPackageName) &&
+                    ti.numRunning > 0) {
+                    am.moveTaskToFront(ti.id, 0);
+                    return;
+                }
+            }
 		}
 
 		// Older version, or Turf is not running.
