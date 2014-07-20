@@ -28,7 +28,7 @@ public class ParseJSON {
 
 	public static CharStats parseJSON(String email) {
 		if (TurfWidget.DEBUG) {
-			Log.d(TurfWidget.DEBUG_STRING, "parseXML");
+			Log.d(TurfWidget.DEBUG_STRING, "parseJSON");
 			// Simulating somewhat slow network.
 			try {
 				Log.d(TurfWidget.DEBUG_STRING, "sleeping..");
