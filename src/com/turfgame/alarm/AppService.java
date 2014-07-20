@@ -338,17 +338,21 @@ public class AppService extends Service
 			                                                         0,
 			                                                         launchIntent,
 			                                                         0);
-			// Reset alerts on delete notification intent
+
+            // setLatestEventInfo before registering deleteIntent due to bug in Android:
+            // https://code.google.com/p/android/issues/detail?id=73720
+            // FIXME: deprecated method setLatestEventInfo
+            notification.setLatestEventInfo(this, notificationTitle, notificationText,
+                    contentIntent);
+
+            // Reset alerts on delete notification intent.
+            // Do this after setLatestEventInfo, see above.
 			Intent resetAlertIntent = new Intent(this, TurfWidget.class);
 			resetAlertIntent.setAction(TurfWidget.RESET_ALERT);
 			notification.deleteIntent = PendingIntent.getBroadcast(this,
 			                                                       0,
 			                                                       resetAlertIntent,
 			                                                       0);
-
-			// FIXME: deprecated method setLatestEventInfo
-			notification.setLatestEventInfo(this, notificationTitle, notificationText,
-			                                contentIntent);
 
 			mNotificationManager.notify(R.string.ticker_text, notification);
 		} else {
