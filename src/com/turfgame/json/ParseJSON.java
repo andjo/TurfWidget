@@ -78,10 +78,12 @@ public class ParseJSON {
 			CharStats charStats = new CharStats();
 			CharStats.setPoints(Integer.parseInt(jsonObject.getString("points")));
 			CharStats.setHour(Integer.parseInt(jsonObject.getString("pointsPerHour")));
+            // CharStats.setHour(12345); // Layout testing
 			CharStats.setPlace(Integer.parseInt(jsonObject.getString("place")));
 			// zones is an array, needs to be counted
 			JSONArray zoneArray = jsonObject.getJSONArray("zones");
 			CharStats.setZones(zoneArray.length());
+            // CharStats.setZones(12); // Layout testing
 			CharStats.setAccount(true);
 
 			if (TurfWidget.DEBUG) {
