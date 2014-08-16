@@ -46,7 +46,7 @@
 
             <LinearLayout
                 android:id="@+id/hourZonesLine"
-                android:layout_width="fill_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
                 android:gravity="right|center_vertical"
                 android:orientation="horizontal">
@@ -55,15 +55,16 @@
                     android:id="@+id/hour"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:contentDescription="@string/per_hour" />
+                    android:contentDescription="@string/per_hour"
+                    android:layout_weight="1" />
 
                 <ImageView
                     android:id="@+id/zones"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/zones"
-                    android:paddingLeft="20dp"
-                    tools:ignore="RtlSymmetry" />
+                    android:layout_weight="1"
+                    android:layout_marginLeft="12dp" />
 
             </LinearLayout>
 
