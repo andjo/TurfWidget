@@ -19,7 +19,8 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="40dp"
             android:text=""
-            android:textSize="13sp" >
+            android:textSize="13sp"
+            tools:ignore="RtlHardcoded">
         </TextView>
 
         <LinearLayout
@@ -31,7 +32,8 @@
             android:layout_marginLeft="5dp"
             android:layout_marginRight="40dp"
             android:gravity="right|center_vertical"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            tools:ignore="RtlHardcoded">
 
             <ImageView
                 android:id="@+id/points"
@@ -58,7 +60,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/zones"
-                    android:paddingLeft="20dp" />
+                    android:paddingLeft="20dp"
+                    tools:ignore="RtlSymmetry" />
             </LinearLayout>
 
             <LinearLayout
@@ -95,7 +98,7 @@
             android:orientation="vertical"
             android:padding="7dp"
             android:src="@drawable/refresh"
-            tools:ignore="UnusedAttribute">
+            tools:ignore="RtlHardcoded,UnusedAttribute">
 
         </ImageButton>
 
@@ -105,7 +108,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:visibility="gone" >
+            android:visibility="gone"
+            tools:ignore="RtlHardcoded">
 
             <ProgressBar
                 android:id="@+id/ProgressBar"

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:paddingBottom="@dimen/widget_margin_landscape_vertical"
@@ -21,7 +22,8 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="45dp"
             android:text=""
-            android:textSize="13sp" >
+            android:textSize="13sp"
+            tools:ignore="RtlHardcoded">
         </TextView>
 
         <LinearLayout
@@ -33,7 +35,8 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="45dp"
             android:gravity="right|center_vertical"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            tools:ignore="RtlHardcoded">
 
             <ImageView
                 android:id="@+id/points"
@@ -61,7 +64,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/zones"
-                    android:paddingLeft="20dp" />
+                    android:paddingLeft="20dp"
+                    tools:ignore="RtlSymmetry" />
 
             </LinearLayout>
 
@@ -100,7 +104,8 @@
             android:paddingLeft="5dp"
             android:paddingRight="10dp"
             android:paddingTop="4dp"
-            android:src="@drawable/settings" >
+            android:src="@drawable/settings"
+            tools:ignore="RtlHardcoded">
         </ImageButton>
 
         <ImageButton
@@ -116,7 +121,8 @@
             android:paddingLeft="5dp"
             android:paddingRight="10dp"
             android:paddingTop="4dp"
-            android:src="@drawable/refresh" >
+            android:src="@drawable/refresh"
+            tools:ignore="RtlHardcoded">
         </ImageButton>
 
         <FrameLayout
@@ -125,7 +131,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
-            android:visibility="gone" >
+            android:visibility="gone"
+            tools:ignore="RtlHardcoded">
 
             <ProgressBar
                 android:id="@+id/ProgressBar"
