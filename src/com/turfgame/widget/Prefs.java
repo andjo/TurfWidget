@@ -33,6 +33,15 @@ public class Prefs extends PreferenceActivity
 
 	private static String CONFIGURE_ACTION = "android.appwidget.action.APPWIDGET_CONFIGURE";
 
+    @Override
+    protected boolean isValidFragment (String fragmentName)
+    {
+        // Log.d(TurfWidget.DEBUG_STRING, "********** isValidFragment called *************");
+        if(Prefs.class.getName().equals(fragmentName))
+            return true;
+        return false;
+    }
+
 	@SuppressWarnings("deprecation") // TODO Fix warning
     @Override
 	public void onCreate(Bundle savedInstanceState)
