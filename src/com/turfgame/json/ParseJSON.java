@@ -71,7 +71,8 @@ public class ParseJSON {
 
 			JSONArray jsonArray = new JSONArray(stringBuilder.toString());
 
-			//get first and only user from array
+			// Get first and only user from array.
+            // FIXME: If the array is empty we could handle this better.
 			JSONObject jsonObject = jsonArray.getJSONObject(0);
 
 			CharStats charStats = new CharStats();
