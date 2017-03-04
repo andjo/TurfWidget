@@ -27,6 +27,11 @@ public class ParseJSON {
 	private static final String DEBUG_TAG = "ParseJSON";
 
 	public static CharStats parseJSON(String email) {
+		if (email.equals("")) {
+			TurfWidget.setError("noEmail");
+			Log.d(DEBUG_TAG, "No email");
+			return new CharStats();
+		}
 		if (TurfWidget.DEBUG) {
 			Log.d(TurfWidget.DEBUG_STRING, "parseJSON");
 			// Simulating somewhat slow network.

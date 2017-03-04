@@ -280,6 +280,14 @@ public class AppService extends Service
 			                          "Server Error");
 
 		}
+		else if (TurfWidget.getError().equals("noEmail")) {
+			if (TurfWidget.DEBUG) {
+				Log.e("Error:", "Empty email");
+			}
+			statsView.setTextViewText(R.id.error,
+			                          "No Account");
+
+		}
 		else if (TurfWidget.getError().equals("file")) {
 			if (TurfWidget.DEBUG) {
 				Log.e("Error:", "File not found");
