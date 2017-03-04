@@ -7,13 +7,13 @@
     <string name="user_email_summary">Your account email used for Turf</string>
     <string name="user_email_dialog">Enter your Google account email</string>
 
-    <string name="update_freq_title">Update Frequency</string>
+    <string name="update_freq_title">Update frequency</string>
     <string name="update_freq_dialog">Choose how often to update</string>
 
     <string name="vibrate_title">Vibrate</string>
     <string name="vibrate_summary">Vibrate on alert</string>
 
-    <string name="notify_title">Show notifications</string>
+    <string name="notify_title">Enable notifications</string>
     <string name="notify_summary">Show notification when a zone is lost</string>
 
     <string name="layout_title">Layout</string>
