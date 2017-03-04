@@ -2,8 +2,8 @@ package com.turfgame.widget;
 
 import com.turfgame.widget.R;
 
-import android.accounts.Account;
-import android.accounts.AccountManager;
+//import android.accounts.Account;
+//import android.accounts.AccountManager;
 import android.appwidget.AppWidgetManager;
 import android.content.Context;
 import android.content.Intent;
@@ -56,19 +56,16 @@ public class Prefs extends PreferenceActivity
 
 	private static String getPhoneEmail(Context context)
 	{
-		String mail = null;
-		boolean hasAccount = false;
-		AccountManager accountManager = AccountManager.get(context);
-		for (Account a : accountManager.getAccounts()) {
-			if (a.type.equals("com.google")) {
-				mail = a.name;
-				hasAccount = true;
-				break;
-			}
-		}
-		if (!hasAccount) {
-			mail = "No google mail?";
-		}
+		String mail = "";
+//		boolean hasAccount = false;
+//		AccountManager accountManager = AccountManager.get(context);
+//		for (Account a : accountManager.getAccounts()) {
+//			if (a.type.equals("com.google")) {
+//				mail = a.name;
+//				hasAccount = true;
+//				break;
+//			}
+//		}
 
 		return mail;
 	}
