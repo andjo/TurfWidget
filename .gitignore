@@ -36,3 +36,5 @@ proguard/
 .idea/
 .gradle
 build/
+gradle/
+gradlew*
