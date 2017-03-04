@@ -30,7 +30,7 @@
         android:title="@string/update_freq_title" />
     
     <ListPreference
-        android:defaultValue="widget"
+        android:defaultValue="@string/layout_default"
         android:dialogTitle="@string/layout_dialog"
         android:entries="@array/layout_name"
         android:entryValues="@array/layout_id"

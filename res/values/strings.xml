@@ -19,6 +19,7 @@
 
     <string name="layout_title">Layout</string>
     <string name="layout_dialog">Choose widget layout</string>
+    <string name="layout_default">widget</string>
 
     <string name="unknown" />
     <string name="per_hour">Per hour</string>
