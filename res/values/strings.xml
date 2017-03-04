@@ -5,6 +5,7 @@
 
     <string name="user_email_title">Turf account</string>
     <string name="user_email_summary">Your account email used for Turf</string>
+    <string name="user_email_hint">E-Mail</string>
     <string name="user_email_dialog">Enter your Google account email</string>
 
     <string name="update_freq_title">Update frequency</string>

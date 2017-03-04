@@ -15,6 +15,8 @@
     <EditTextPreference
         android:dialogTitle="@string/user_email_dialog"
         android:key="user_email"
+        android:inputType="textEmailAddress"
+        android:hint="@string/user_email_hint"
         android:summary="@string/user_email_summary"
         android:title="@string/user_email_title" />
 
