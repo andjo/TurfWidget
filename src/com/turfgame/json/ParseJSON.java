@@ -75,6 +75,9 @@ public class ParseJSON {
 
 			JSONArray jsonArray = new JSONArray(responseString);
 
+			if (jsonArray.length() == 0) {
+				throw new ArrayIndexOutOfBoundsException("User not found");
+			}
 			// Get first and only user from array.
 			JSONObject jsonObject = jsonArray.getJSONObject(0);
 
@@ -95,11 +98,10 @@ public class ParseJSON {
 
 			TurfWidget.setError(null);
 			return charStats;
-		} 
-		 catch (ClientProtocolException e) {
-			TurfWidget.setError("server");
-			Log.e(DEBUG_TAG, "server", e);
-		} catch (IOException e) {		
+		} catch(ArrayIndexOutOfBoundsException e) {
+			TurfWidget.setError("user");
+			Log.e(DEBUG_TAG, "user", e);
+		} catch (IOException e) {
 			TurfWidget.setError("internet");
 			e.printStackTrace();
 			Log.e(DEBUG_TAG, "internet", e);

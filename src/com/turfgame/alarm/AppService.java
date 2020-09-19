@@ -294,8 +294,15 @@ public class AppService extends Service
 			}
 			statsView.setTextViewText(R.id.error,
 					"Server provided no data");
+		}
+		else if (TurfWidget.getError().equals("user")) {
+				if (TurfWidget.DEBUG) {
+					Log.e("Error:", "User not found");
+				}
+				statsView.setTextViewText(R.id.error,
+						"User not found");
 
-		} else {
+			} else {
 			if (TurfWidget.DEBUG) {
 				Log.e("Error:", "Unknown");
 			}
