@@ -1,9 +1,10 @@
 buildscript {
     repositories {
-        mavenCentral()
+        google()
+        jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.0'
+        classpath 'com.android.tools.build:gradle:4.0.1'
     }
 }
 apply plugin: 'com.android.application'
@@ -13,12 +14,12 @@ dependencies {
 
 android {
     compileSdkVersion 22
-    buildToolsVersion '25.0.2'
+    buildToolsVersion '29.0.2'
 
     defaultConfig {
         minSdkVersion 7
         //noinspection OldTargetApi
-        targetSdkVersion 22
+        targetSdkVersion 29
     }
     sourceSets {
         main {
@@ -31,6 +32,12 @@ android {
             assets.srcDirs = ['assets']
         }
 
-        instrumentTest.setRoot('tests')
+        androidTest.setRoot('tests')
+    }
+}
+allprojects {
+    repositories {
+        google()
+        jcenter()
     }
 }
